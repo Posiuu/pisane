@@ -7,66 +7,51 @@
     android:background="@color/black"
     tools:context=".MainMenuActivity">
 
-    <TextView
-        android:id="@+id/welcomeTextView"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top12Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top6Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.06" />
+
+    <ImageView
+        android:id="@+id/headerPanelBackgroundImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:autoSizeTextType="uniform"
-        android:maxLines="1"
-        android:gravity="center"
-        android:text="@string/welcomeString"
-        android:textColor="@color/textColor"
-        app:layout_constraintBottom_toTopOf="@+id/top14Guideline"
-        app:layout_constraintEnd_toStartOf="@+id/settingsImageButton"
-        app:layout_constraintStart_toEndOf="@+id/logoImageView"
-        app:layout_constraintTop_toTopOf="@+id/top7Guideline" />
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/top12Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/header_panel_background" />
 
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/top14Guideline"
         app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@+id/top12Guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <ImageButton
-        android:id="@+id/settingsImageButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintBottom_toTopOf="@+id/top7Guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/top14Guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/top7Guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
+        app:srcCompat="@drawable/pisane_logo" />
 
     <ProgressBar
         android:id="@+id/levelProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/progress_bar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:max="100"
         android:progress="50"
-        android:progressDrawable="@drawable/progress_bar"
         android:secondaryProgress="0"
-        app:layout_constraintBottom_toTopOf="@+id/welcomeTextView"
+        app:layout_constraintBottom_toTopOf="@+id/top6Guideline"
         app:layout_constraintEnd_toStartOf="@+id/settingsImageButton"
         app:layout_constraintStart_toEndOf="@+id/logoImageView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -76,13 +61,144 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
-        android:maxLines="1"
         android:gravity="center"
         android:text="Level 6"
-        android:textColor="@color/textColorBlack"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
         app:layout_constraintBottom_toBottomOf="@+id/levelProgressBar"
         app:layout_constraintEnd_toEndOf="@+id/levelProgressBar"
         app:layout_constraintStart_toStartOf="@+id/levelProgressBar"
         app:layout_constraintTop_toTopOf="@+id/levelProgressBar" />
+
+    <ImageButton
+        android:id="@+id/settingsImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:padding="5dp"
+        android:background="@drawable/bordered_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@+id/top6Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings_image" />
+
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/white"
+        android:text="@string/welcome"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:maxLines="1"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        app:layout_constraintBottom_toTopOf="@+id/top12Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/settingsImageButton"
+        app:layout_constraintStart_toEndOf="@+id/logoImageView"
+        app:layout_constraintTop_toTopOf="@+id/top6Guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom12Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="644dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start14Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.145" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start39Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.39" />
+
+    <ImageView
+        android:id="@+id/bottomPanelBackgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom12Guideline"
+        app:srcCompat="@drawable/bottom_panel_background" />
+
+    <ImageView
+        android:id="@+id/chipCountImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintDimensionRatio="1.8:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/start39Guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom12Guideline"
+        app:srcCompat="@drawable/chip_count_frame" />
+
+    <TextView
+        android:id="@+id/chipCountTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center_vertical"
+        android:text="30000"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        app:layout_constraintDimensionRatio="3.1:1"
+        app:layout_constraintBottom_toBottomOf="@+id/chipCountImageView"
+        app:layout_constraintEnd_toEndOf="@+id/chipCountImageView"
+        app:layout_constraintStart_toStartOf="@+id/start14Guideline"
+        app:layout_constraintTop_toTopOf="@+id/chipCountImageView" />
+
+    <Button
+        android:id="@+id/collectFreeChipsButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:background="@drawable/bordered_background"
+        android:maxLines="2"
+        android:padding="10dp"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:text="@string/collectFreeChips"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/shopImageButton"
+        app:layout_constraintStart_toStartOf="@+id/start39Guideline"
+        app:layout_constraintTop_toTopOf="@+id/bottom12Guideline" />
+
+    <ImageButton
+        android:id="@+id/shopImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:background="@drawable/bordered_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom12Guideline"
+        app:srcCompat="@drawable/shop_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

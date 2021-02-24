@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">pisane</string>
-    <string name="welcomeString">Witaj Posiu!</string>
+    <string name="welcome">Witaj Posiu!</string>
+    <string name="collectFreeChips">Odbierz darmowe \n10000 rzetonów!</string>
 </resources>
