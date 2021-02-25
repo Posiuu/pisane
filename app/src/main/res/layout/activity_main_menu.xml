@@ -104,12 +104,33 @@
         app:layout_constraintStart_toEndOf="@+id/logoImageView"
         app:layout_constraintTop_toTopOf="@+id/top6Guideline" />
 
+    <ImageView
+        android:id="@+id/menuImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/bottom12Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top12Guideline"
+        app:srcCompat="@drawable/menu_panel" />
+
+    <Button
+        android:id="@+id/mainMenuButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/menuImageView"
+        app:layout_constraintEnd_toEndOf="@+id/menuImageView"
+        app:layout_constraintStart_toStartOf="@+id/menuImageView"
+        app:layout_constraintTop_toTopOf="@+id/menuImageView" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom12Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="644dp" />
+        app:layout_constraintGuide_percent="0.88" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/start14Guideline"
@@ -133,7 +154,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottom12Guideline"
+        app:layout_constraintTop_toBottomOf="@+id/bottom12Guideline"
         app:srcCompat="@drawable/bottom_panel_background" />
 
     <ImageView

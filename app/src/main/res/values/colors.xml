@@ -12,4 +12,6 @@
     <color name="dark_purple1">#413F59</color>
     <color name="dark_green">#779E28</color>
     <color name="dark_green1">#606008</color>
+    <color name="transparent">#00000000</color>
+
 </resources>
