@@ -89,13 +89,6 @@
             app:layout_constraintGuide_percent="0.88" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start14Guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.145" />
-
-        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/start26Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -115,6 +108,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start38Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.145" />
 
         <ImageView
             android:id="@+id/headerPanelBackgroundImageView"
@@ -199,22 +199,23 @@
             app:layout_constraintStart_toEndOf="@+id/logoImageView"
             app:layout_constraintTop_toTopOf="@+id/top6Guideline" />
 
-        <ImageButton
-            android:id="@+id/mainMenuImageButton"
+        <ImageView
+            android:id="@+id/mainMenuImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/menu_panel"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toTopOf="@id/top88Guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top12Guideline" />
+            app:layout_constraintTop_toBottomOf="@id/top12Guideline"
+            app:srcCompat="@drawable/menu_panel" />
 
         <Button
             android:id="@+id/randomCardsButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/transparent"
+            android:onClick="didTapButton"
             app:layout_constraintBottom_toTopOf="@+id/top29Guideline"
             app:layout_constraintEnd_toStartOf="@+id/start75Guideline"
             app:layout_constraintStart_toStartOf="@+id/start26Guideline"
@@ -288,7 +289,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/chipCountImageView"
             app:layout_constraintDimensionRatio="3.1:1"
             app:layout_constraintEnd_toEndOf="@+id/chipCountImageView"
-            app:layout_constraintStart_toStartOf="@+id/start14Guideline"
+            app:layout_constraintStart_toStartOf="@+id/start38Guideline"
             app:layout_constraintTop_toTopOf="@+id/chipCountImageView" />
 
         <Button

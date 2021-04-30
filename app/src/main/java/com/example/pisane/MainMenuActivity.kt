@@ -1,6 +1,11 @@
 package com.example.pisane
 
+import android.R
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pisane.databinding.ActivityMainMenuBinding
@@ -40,7 +45,7 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
         binding.shopImageButton.setOnClickListener {
-            shoppButtonHandling()
+            shopButtonHandling()
         }
     }
 
@@ -52,10 +57,8 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun randomCardsButtonHandling() {
-        Toast.makeText(
-                this, "Tryb gry losowe kary będzie wkrótce dostępny",
-                Toast.LENGTH_SHORT
-        ).show()
+        val intent = Intent(this, GameActivity::class.java)
+        startActivity(intent)
     }
 
     private fun cardsSetsButtonHandling() {
@@ -86,7 +89,7 @@ class MainMenuActivity : AppCompatActivity() {
         ).show()
     }
 
-    private fun shoppButtonHandling() {
+    private fun shopButtonHandling() {
         Toast.makeText(
                 this, "Sklep będzie wkrótce dostępny",
                 Toast.LENGTH_SHORT
