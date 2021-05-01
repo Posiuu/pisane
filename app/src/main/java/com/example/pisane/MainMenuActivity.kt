@@ -1,11 +1,7 @@
 package com.example.pisane
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pisane.databinding.ActivityMainMenuBinding
@@ -20,31 +16,31 @@ class MainMenuActivity : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.settingsImageButton.setOnClickListener {
+        binding.mmSettingsImageButton.setOnClickListener {
             settingsButtonHandling()
         }
 
-        binding.randomCardsButton.setOnClickListener {
+        binding.mmRandomCardsButton.setOnClickListener {
             randomCardsButtonHandling()
         }
 
-        binding.cardsSetsButton.setOnClickListener {
+        binding.mmCardsSetsButton.setOnClickListener {
             cardsSetsButtonHandling()
         }
 
-        binding.scoresButton.setOnClickListener {
+        binding.mmScoresButton.setOnClickListener {
             scoresButtonHandling()
         }
 
-        binding.rulesButton.setOnClickListener {
+        binding.mmRulesButton.setOnClickListener {
             rulesButtonHandling()
         }
 
-        binding.collectFreeChipsButton.setOnClickListener {
+        binding.mmCollectFreeChipsButton.setOnClickListener {
             collectFreeChipsButtonHandling()
         }
 
-        binding.shopImageButton.setOnClickListener {
+        binding.mmShopImageButton.setOnClickListener {
             shopButtonHandling()
         }
     }

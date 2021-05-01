@@ -1,4 +1,4 @@
-package com.example.pisane.model
+package com.example.pisane.model.game_table_record
 
 object RecordType{
     const val UNKNOWN = -1

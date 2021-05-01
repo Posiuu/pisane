@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pisane.R
-import com.example.pisane.model.GameTableRecord
-import com.example.pisane.model.RecordType
+import com.example.pisane.model.game_table_record.*
 
 class GamesTableRecyclerViewAdapter(
         private val context: Context,

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mainConstraintLayout"
+        android:id="@+id/mmMainConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
@@ -12,133 +12,133 @@
         tools:viewBindingIgnore="true">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top6Guideline"
+            android:id="@+id/mmTop6Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.06" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top12Guideline"
+            android:id="@+id/mmTop12Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.12" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top14Guideline"
+            android:id="@+id/mmTop14Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.14" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top29Guideline"
+            android:id="@+id/mmTop29Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.29" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top325Guideline"
+            android:id="@+id/mmTop33Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.33" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top47Guideline"
+            android:id="@+id/mmTop47Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.47" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top50Guideline"
+            android:id="@+id/mmTop50Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.5" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top652Guideline"
+            android:id="@+id/mmTop652Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.652" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top685Guideline"
+            android:id="@+id/mmTop685Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.685" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top832Guideline"
+            android:id="@+id/mmTop832Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.832" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top88Guideline"
+            android:id="@+id/mmTop88Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.88" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start26Guideline"
+            android:id="@+id/mmStart145Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.145" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mmStart26Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.26" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start39Guideline"
+            android:id="@+id/mmStart39Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.39" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start75Guideline"
+            android:id="@+id/mmStart75Guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.75" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start38Guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.145" />
-
         <ImageView
-            android:id="@+id/headerPanelBackgroundImageView"
+            android:id="@+id/mmHeaderPanelBackgroundImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="@id/top12Guideline"
+            app:layout_constraintBottom_toBottomOf="@id/mmTop12Guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/header_panel_background" />
 
         <ImageView
-            android:id="@+id/logoImageView"
+            android:id="@+id/mmLogoImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/top12Guideline"
+            app:layout_constraintBottom_toTopOf="@+id/mmTop12Guideline"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/pisane_logo" />
 
         <ProgressBar
-            android:id="@+id/levelProgressBar"
+            android:id="@+id/mmLevelProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -146,13 +146,13 @@
             android:progress="50"
             android:progressDrawable="@drawable/progress_bar"
             android:secondaryProgress="0"
-            app:layout_constraintBottom_toTopOf="@+id/top6Guideline"
-            app:layout_constraintEnd_toStartOf="@+id/settingsImageButton"
-            app:layout_constraintStart_toEndOf="@+id/logoImageView"
+            app:layout_constraintBottom_toTopOf="@+id/mmTop6Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/mmSettingsImageButton"
+            app:layout_constraintStart_toEndOf="@+id/mmLogoImageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/progressBarLevelTextView"
+            android:id="@+id/mmProgressBarLevelTextView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
@@ -163,26 +163,26 @@
             android:shadowRadius="5"
             android:text="Level 6"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/levelProgressBar"
-            app:layout_constraintEnd_toEndOf="@+id/levelProgressBar"
-            app:layout_constraintStart_toStartOf="@+id/levelProgressBar"
-            app:layout_constraintTop_toTopOf="@+id/levelProgressBar" />
+            app:layout_constraintBottom_toBottomOf="@+id/mmLevelProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/mmLevelProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/mmLevelProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/mmLevelProgressBar" />
 
         <ImageButton
-            android:id="@+id/settingsImageButton"
+            android:id="@+id/mmSettingsImageButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/bordered_background"
             android:padding="5dp"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/top6Guideline"
+            app:layout_constraintBottom_toTopOf="@+id/mmTop6Guideline"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/settings_image" />
 
         <TextView
-            android:id="@+id/welcomeTextView"
+            android:id="@+id/mmWelcomeTextView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
@@ -194,89 +194,89 @@
             android:shadowRadius="5"
             android:text="@string/welcome"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/top12Guideline"
-            app:layout_constraintEnd_toStartOf="@+id/settingsImageButton"
-            app:layout_constraintStart_toEndOf="@+id/logoImageView"
-            app:layout_constraintTop_toTopOf="@+id/top6Guideline" />
+            app:layout_constraintBottom_toTopOf="@+id/mmTop12Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/mmSettingsImageButton"
+            app:layout_constraintStart_toEndOf="@+id/mmLogoImageView"
+            app:layout_constraintTop_toTopOf="@+id/mmTop6Guideline" />
 
         <ImageView
-            android:id="@+id/mainMenuImageView"
+            android:id="@+id/mmMainMenuImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toTopOf="@id/top88Guideline"
+            app:layout_constraintBottom_toTopOf="@id/mmTop88Guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top12Guideline"
+            app:layout_constraintTop_toBottomOf="@id/mmTop12Guideline"
             app:srcCompat="@drawable/menu_panel" />
 
         <Button
-            android:id="@+id/randomCardsButton"
+            android:id="@+id/mmRandomCardsButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/transparent"
             android:onClick="didTapButton"
-            app:layout_constraintBottom_toTopOf="@+id/top29Guideline"
-            app:layout_constraintEnd_toStartOf="@+id/start75Guideline"
-            app:layout_constraintStart_toStartOf="@+id/start26Guideline"
-            app:layout_constraintTop_toTopOf="@+id/top14Guideline" />
+            app:layout_constraintBottom_toTopOf="@+id/mmTop29Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/mmStart75Guideline"
+            app:layout_constraintStart_toStartOf="@+id/mmStart26Guideline"
+            app:layout_constraintTop_toTopOf="@+id/mmTop14Guideline" />
 
         <Button
-            android:id="@+id/cardsSetsButton"
+            android:id="@+id/mmCardsSetsButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/transparent"
-            app:layout_constraintBottom_toTopOf="@+id/top47Guideline"
-            app:layout_constraintEnd_toStartOf="@+id/start75Guideline"
-            app:layout_constraintStart_toStartOf="@+id/start26Guideline"
-            app:layout_constraintTop_toTopOf="@+id/top325Guideline" />
+            app:layout_constraintBottom_toTopOf="@+id/mmTop47Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/mmStart75Guideline"
+            app:layout_constraintStart_toStartOf="@+id/mmStart26Guideline"
+            app:layout_constraintTop_toTopOf="@+id/mmTop33Guideline" />
 
         <Button
-            android:id="@+id/scoresButton"
+            android:id="@+id/mmScoresButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/transparent"
-            app:layout_constraintBottom_toTopOf="@id/top652Guideline"
-            app:layout_constraintEnd_toStartOf="@+id/start75Guideline"
-            app:layout_constraintStart_toStartOf="@+id/start26Guideline"
-            app:layout_constraintTop_toTopOf="@id/top50Guideline" />
+            app:layout_constraintBottom_toTopOf="@id/mmTop652Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/mmStart75Guideline"
+            app:layout_constraintStart_toStartOf="@+id/mmStart26Guideline"
+            app:layout_constraintTop_toTopOf="@id/mmTop50Guideline" />
 
         <Button
-            android:id="@+id/rulesButton"
+            android:id="@+id/mmRulesButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/transparent"
-            app:layout_constraintBottom_toTopOf="@id/top832Guideline"
-            app:layout_constraintEnd_toStartOf="@+id/start75Guideline"
-            app:layout_constraintStart_toStartOf="@+id/start26Guideline"
-            app:layout_constraintTop_toTopOf="@id/top685Guideline" />
+            app:layout_constraintBottom_toTopOf="@id/mmTop832Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/mmStart75Guideline"
+            app:layout_constraintStart_toStartOf="@+id/mmStart26Guideline"
+            app:layout_constraintTop_toTopOf="@id/mmTop685Guideline" />
 
         <ImageView
-            android:id="@+id/bottomPanelBackgroundImageView"
+            android:id="@+id/mmBottomPanelBackgroundImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/top88Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/mmTop88Guideline"
             app:srcCompat="@drawable/bottom_panel_background" />
 
         <ImageView
-            android:id="@+id/chipCountImageView"
+            android:id="@+id/mmChipCountImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1.8:1"
-            app:layout_constraintEnd_toStartOf="@+id/start39Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/mmStart39Guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/top88Guideline"
+            app:layout_constraintTop_toTopOf="@+id/mmTop88Guideline"
             app:srcCompat="@drawable/chip_count_frame" />
 
         <TextView
-            android:id="@+id/chipCountTextView"
+            android:id="@+id/mmChipCountTextView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
@@ -286,14 +286,14 @@
             android:shadowDy="5"
             android:shadowRadius="5"
             android:text="30000"
-            app:layout_constraintBottom_toBottomOf="@+id/chipCountImageView"
+            app:layout_constraintBottom_toBottomOf="@+id/mmChipCountImageView"
             app:layout_constraintDimensionRatio="3.1:1"
-            app:layout_constraintEnd_toEndOf="@+id/chipCountImageView"
-            app:layout_constraintStart_toStartOf="@+id/start38Guideline"
-            app:layout_constraintTop_toTopOf="@+id/chipCountImageView" />
+            app:layout_constraintEnd_toEndOf="@+id/mmChipCountImageView"
+            app:layout_constraintStart_toStartOf="@+id/mmStart145Guideline"
+            app:layout_constraintTop_toTopOf="@+id/mmChipCountImageView" />
 
         <Button
-            android:id="@+id/collectFreeChipsButton"
+            android:id="@+id/mmCollectFreeChipsButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
@@ -308,12 +308,12 @@
             android:shadowRadius="5"
             android:text="@string/collectFreeChips"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/shopImageButton"
-            app:layout_constraintStart_toStartOf="@+id/start39Guideline"
-            app:layout_constraintTop_toTopOf="@+id/top88Guideline" />
+            app:layout_constraintEnd_toStartOf="@+id/mmShopImageButton"
+            app:layout_constraintStart_toStartOf="@+id/mmStart39Guideline"
+            app:layout_constraintTop_toTopOf="@+id/mmTop88Guideline" />
 
         <ImageButton
-            android:id="@+id/shopImageButton"
+            android:id="@+id/mmShopImageButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/bordered_background"
@@ -324,7 +324,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/top88Guideline"
+            app:layout_constraintTop_toTopOf="@+id/mmTop88Guideline"
             app:srcCompat="@drawable/shop_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
