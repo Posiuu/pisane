@@ -4,27 +4,51 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+
 import com.example.pisane.R
 import com.example.pisane.model.game_table_record.*
 
 class GamesTableRecyclerViewAdapter(
         private val context: Context,
-        private val dataSet: List<GameTableRecord>
+        private val gameTableRecordsList: List<GameTableRecord>,
+        private val chooseGameButtonHandling: (Int) -> Unit
         ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private inner class RecordViewHolder(recordView: View) :
             RecyclerView.ViewHolder(recordView){
-        val nameTextView: TextView = recordView.findViewById(R.id.gameNameTextView)
-        val scoreTextView: TextView = recordView.findViewById(R.id.gameScoreTextView)
-        val totalScoreTextView: TextView = recordView.findViewById(R.id.totalScoreTextView)
+        val nameTextView: TextView = recordView.findViewById(R.id.grGameNameTextView)
+        val redLineImageView: ImageView = recordView.findViewById(R.id.grRedLineImageView)
+        val scoreTextView: TextView = recordView.findViewById(R.id.grGameScoreTextView)
+        val possibleScoreTextView: TextView = recordView.findViewById(R.id.grPossibleScoreTextView)
+        val redCrossImageButton: ImageButton = recordView.findViewById(R.id.grRedCrossImageButton)
+        val greenArrowImageButton: ImageButton = recordView.findViewById(R.id.grGreenArrowImageButton)
+        val totalScoreTextView: TextView = recordView.findViewById(R.id.grTotalScoreTextView)
 
-        fun bind(position: Int){
-            var record = dataSet[position]
+        fun bind(position: Int) {
+            val record = gameTableRecordsList[position]
             nameTextView.text = record.name
             scoreTextView.text = record.score
+            possibleScoreTextView.text = record.possibleScore.toString()
             totalScoreTextView.text = record.totalScore
+
+            scoreTextView.visibility = record.scoreVisibility
+            possibleScoreTextView.visibility = record.possibleScoreVisibility
+            totalScoreTextView.visibility = record.totalScoreVisibility
+            redLineImageView.visibility = record.redLineVisibility
+            redCrossImageButton.visibility = record.redCrossVisibility
+            greenArrowImageButton.visibility = record.greedArrowVisibility
+
+            greenArrowImageButton.setOnClickListener {
+                chooseGameButtonHandling(position)
+            }
+
+            redCrossImageButton.setOnClickListener {
+                chooseGameButtonHandling(position)
+            }
         }
     }
 
@@ -46,10 +70,10 @@ class GamesTableRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int {
-        return dataSet.size
+        return gameTableRecordsList.size
     }
 
     override fun getItemViewType(position: Int): Int {
-        return dataSet[position].type
+        return gameTableRecordsList[position].type
     }
 }

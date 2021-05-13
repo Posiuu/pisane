@@ -2,86 +2,157 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/grGameTableRowConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/game_table_headers_background"
     android:scaleType="fitXY">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart75Guideline"
+        android:id="@+id/grStart38Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.38" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/start69Guideline"
+        android:id="@+id/grStart58Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.69" />
+        app:layout_constraintGuide_percent="0.58" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/grStart67Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.67" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/grStart77Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.77" />
 
     <TextView
-        android:id="@+id/gameNameTextView"
+        android:id="@+id/grGameNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="4dp"
-        android:text="TextView"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/gStart75Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/grStart38Guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/nameScoreDivider"
+        android:id="@+id/grNameScoreDivider"
         android:layout_width="1dp"
         android:layout_height="0dp"
         android:src="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/gStart75Guideline"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="@+id/grStart38Guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/grRedLineImageView"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:src="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/grStart77Guideline"
+        app:layout_constraintStart_toEndOf="@+id/grStart38Guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
 
     <TextView
-        android:id="@+id/gameScoreTextView"
+        android:id="@+id/grGameScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="4dp"
-        android:text="TextView"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/start69Guideline"
-        app:layout_constraintStart_toEndOf="@+id/gStart75Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/grStart77Guideline"
+        app:layout_constraintStart_toEndOf="@+id/grStart38Guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/grPossibleScoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/grStart67Guideline"
+        app:layout_constraintStart_toStartOf="@+id/grStart58Guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
+
+    <ImageButton
+        android:id="@+id/grRedCrossImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/grStart67Guideline"
+        app:layout_constraintStart_toStartOf="@+id/grStart58Guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/red_cross_image" />
+
+    <ImageButton
+        android:id="@+id/grGreenArrowImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/grStart77Guideline"
+        app:layout_constraintStart_toEndOf="@+id/grStart67Guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_arrow_image" />
+
     <ImageView
-        android:id="@+id/scoreTotalScoreDivider"
+        android:id="@+id/grScoreTotalScoreDivider"
         android:layout_width="1dp"
         android:layout_height="0dp"
         android:src="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/start69Guideline"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="@+id/grStart77Guideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/totalScoreTextView"
+        android:id="@+id/grTotalScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="4dp"
-        android:text="TextView"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/start69Guideline"
+        app:layout_constraintStart_toStartOf="@+id/grStart77Guideline"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 

@@ -14,5 +14,6 @@
     <color name="dark_green1">#606008</color>
     <color name="light_bronze">#EAB518</color>
     <color name="transparent">#00000000</color>
+    <color name="red">#FF0000</color>
 
 </resources>
