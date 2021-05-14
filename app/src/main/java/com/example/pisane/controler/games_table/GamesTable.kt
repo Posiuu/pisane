@@ -49,6 +49,7 @@ class GamesTable() {
                 record.redCrossVisibility = INVISIBLE
             }
             else if (isGamePossibleToCrossOut) {
+                record.possibleScore = possibleScore
                 record.redCrossVisibility = VISIBLE
 
                 record.scoreVisibility = INVISIBLE
