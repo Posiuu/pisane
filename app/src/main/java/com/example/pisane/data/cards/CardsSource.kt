@@ -55,5 +55,8 @@ val cards = listOf(
         Card(CardColor.CLUB, CardFigure.FJ, 2, R.drawable.cj),
         Card(CardColor.CLUB, CardFigure.FQ, 3, R.drawable.cq),
         Card(CardColor.CLUB, CardFigure.FK, 4, R.drawable.ck),
-        Card(CardColor.CLUB, CardFigure.FA, 11, R.drawable.ca)
+        Card(CardColor.CLUB, CardFigure.FA, 11, R.drawable.ca),
+        Card(CardColor.JOKER, CardFigure.JOKER, 15, R.drawable.joker),
+        Card(CardColor.JOKER, CardFigure.JOKER, 15, R.drawable.joker),
+        Card(CardColor.JOKER, CardFigure.JOKER, 15, R.drawable.joker)
 )

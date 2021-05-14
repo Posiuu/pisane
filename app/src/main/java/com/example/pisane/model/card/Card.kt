@@ -1,12 +1,11 @@
 package com.example.pisane.model.card
 
-import com.example.pisane.R
-
 object CardColor {
     const val DIAMOND = 0
     const val HEART = 1
     const val SPADE = 2
     const val CLUB = 3
+    const val JOKER = 4
 }
 
 object CardFigure {
@@ -23,6 +22,7 @@ object CardFigure {
     const val FQ = 10
     const val FK = 11
     const val FA = 12
+    const val JOKER = 13
 }
 
 class Card(val color: Int, val figure: Int, val value: Int, val image: Int)
