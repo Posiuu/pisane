@@ -10,6 +10,8 @@ import com.example.pisane.databinding.ActivityGameBinding
 import com.example.pisane.adapter.*
 import com.example.pisane.model.card.*
 import com.example.pisane.controler.game.*
+import com.example.pisane.data.shared_preferences_manager.PREF_GAME
+import com.example.pisane.data.shared_preferences_manager.SharedPreferencesManager
 
 class GameActivity : AppCompatActivity() {
 
@@ -71,7 +73,7 @@ class GameActivity : AppCompatActivity() {
                 CardImageButton(binding.gCard5ImageButton, 4)
         )
 
-        startGame()
+        loadGameOrStartNewOne()
 
         binding.gResultsRecyclerView.adapter = GamesTableRecyclerViewAdapter(this,
                 game.gamesTable.data, this::chooseGameButtonHandling)
@@ -99,6 +101,12 @@ class GameActivity : AppCompatActivity() {
         binding.gCard5ImageButton.setOnClickListener {
             cardsImageButtons[4].click()
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        saveGame()
     }
 
     private fun drawButtonHandling() {
@@ -130,11 +138,34 @@ class GameActivity : AppCompatActivity() {
         binding.gResultsRecyclerView.adapter?.notifyDataSetChanged()
     }
 
-    private fun startGame() {
+    private fun saveGame() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        sharedPreferencesManager.putObject(game, PREF_GAME)
+    }
+
+    private fun loadGameOrStartNewOne() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val loadedGame = sharedPreferencesManager.getObject<Game>(PREF_GAME)
+
+        if (loadedGame == null) {
+            startNewGame()
+        }
+        else {
+            game = loadedGame
+            updateCardImageButtons()
+        }
+    }
+
+    private fun startNewGame() {
         game = Game()
         game.startHand()
 
         updateCardImageButtons()
+    }
+
+    private fun endGame() {
+        Toast.makeText(this,
+            "Game ended with ${game.gamesTable.tableTotalScore}", Toast.LENGTH_LONG).show()
     }
 
     private fun updateCardImageButtons() {
@@ -150,10 +181,5 @@ class GameActivity : AppCompatActivity() {
         cardsImageButtons.forEach { cardImageButton ->
             cardImageButton.moveDown()
         }
-    }
-
-    private fun endGame() {
-        Toast.makeText(this,
-                "Game ended with ${game.gamesTable.tableTotalScore}", Toast.LENGTH_LONG).show()
     }
 }
