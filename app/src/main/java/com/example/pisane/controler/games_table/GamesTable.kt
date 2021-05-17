@@ -7,6 +7,8 @@ import com.example.pisane.model.game_table_record.*
 
 class GamesTable() {
     val data = gameTableScoresList
+    private var totalScoreIndex = 1
+    private var tableTotalScore = 0
 
     fun updateWithPossibleScores(possibleScores: List<Int>) {
         for (i in data.indices) {
@@ -63,5 +65,11 @@ class GamesTable() {
     fun chooseGameScore(position: Int) {
         val record = data[position]
         record.score = record.possibleScore.toString()
+
+        tableTotalScore += record.possibleScore
+        data[totalScoreIndex].totalScore = tableTotalScore.toString()
+        data[totalScoreIndex].totalScoreVisibility = VISIBLE
+
+        totalScoreIndex++
     }
 }
