@@ -8,7 +8,7 @@ import com.example.pisane.model.game_table_record.*
 class GamesTable() {
     val data = gameTableScoresList
     private var totalScoreIndex = 1
-    private var tableTotalScore = 0
+    var tableTotalScore = 0
 
     fun updateWithPossibleScores(possibleScores: List<Int>) {
         for (i in data.indices) {

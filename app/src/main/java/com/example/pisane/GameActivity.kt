@@ -120,6 +120,11 @@ class GameActivity : AppCompatActivity() {
     private fun chooseGameButtonHandling(gamePosition: Int) {
         game.gamesTable.chooseGameScore(gamePosition)
 
+        if (game.isOver()) {
+            endGame()
+            return
+        }
+
         game.startHand()
         updateCardImageButtons()
         binding.gResultsRecyclerView.adapter?.notifyDataSetChanged()
@@ -145,5 +150,10 @@ class GameActivity : AppCompatActivity() {
         cardsImageButtons.forEach { cardImageButton ->
             cardImageButton.moveDown()
         }
+    }
+
+    private fun endGame() {
+        Toast.makeText(this,
+                "Game ended with ${game.gamesTable.tableTotalScore}", Toast.LENGTH_LONG).show()
     }
 }

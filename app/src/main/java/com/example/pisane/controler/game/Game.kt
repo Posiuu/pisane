@@ -18,4 +18,8 @@ class Game() {
         val possibleScores = currentHand.getPossibleScores()
         gamesTable.updateWithPossibleScores(possibleScores)
     }
+
+    fun isOver(): Boolean {
+        return handsCount == gamesTable.data.size - 1
+    }
 }
