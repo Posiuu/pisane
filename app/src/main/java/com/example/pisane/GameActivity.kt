@@ -1,8 +1,10 @@
 package com.example.pisane
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.pisane.databinding.ActivityGameBinding
@@ -149,11 +151,23 @@ class GameActivity : AppCompatActivity() {
 
         if (loadedGame == null) {
             startNewGame()
+            return
         }
-        else {
-            game = loadedGame
-            updateCardImageButtons()
-        }
+
+        game = loadedGame
+        updateCardImageButtons()
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.confirm_load_game)
+        builder.setMessage(R.string.confirm_load_game_message)
+        builder.setPositiveButton(R.string.yes, DialogInterface.OnClickListener { dialog, _ ->
+            dialog.cancel()
+        })
+        builder.setNegativeButton(R.string.no, DialogInterface.OnClickListener { dialog, _ ->
+            startNewGame()
+            dialog.cancel()
+        })
+        val alert = builder.create()
+        alert.show()
     }
 
     private fun startNewGame() {
@@ -161,6 +175,8 @@ class GameActivity : AppCompatActivity() {
         game.startHand()
 
         updateCardImageButtons()
+        binding.gResultsRecyclerView.adapter = GamesTableRecyclerViewAdapter(this,
+                game.gamesTable.data, this::chooseGameButtonHandling)
     }
 
     private fun endGame() {

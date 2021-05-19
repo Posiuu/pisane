@@ -2,4 +2,8 @@
     <string name="app_name">pisane</string>
     <string name="welcome">Witaj Posiu!</string>
     <string name="collectFreeChips">Odbierz darmowe \n10000 rzetonów!</string>
+    <string name="confirm_load_game">Wczytywanie gry</string>
+    <string name="confirm_load_game_message">Masz już rozpoczętą grę. Chcesz ją kontynuować?</string>
+    <string name="yes">tak</string>
+    <string name="no">nie</string>
 </resources>
