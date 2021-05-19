@@ -12,8 +12,7 @@ import com.example.pisane.databinding.ActivityGameBinding
 import com.example.pisane.adapter.*
 import com.example.pisane.model.card.*
 import com.example.pisane.controler.game.*
-import com.example.pisane.data.shared_preferences_manager.PREF_GAME
-import com.example.pisane.data.shared_preferences_manager.SharedPreferencesManager
+import com.example.pisane.data.shared_preferences_manager.*
 
 class GameActivity : AppCompatActivity() {
 
@@ -112,6 +111,12 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun drawButtonHandling() {
+        if (selectedCardsIndices.isEmpty()) {
+            Toast.makeText(this,
+                    "Nie wybrałeś żadnych kart do wymiany.", Toast.LENGTH_LONG).show()
+            return
+        }
+
         val hand = game.currentHand
         val isDrawSuccessful = hand.draw(selectedCardsIndices)
         updateCardImageButtons()
