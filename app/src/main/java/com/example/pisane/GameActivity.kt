@@ -2,17 +2,21 @@ package com.example.pisane
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.pisane.databinding.ActivityGameBinding
-
 import com.example.pisane.adapter.*
-import com.example.pisane.model.card.*
+import com.example.pisane.anims.MyBounceInterpolator
 import com.example.pisane.controler.game.*
 import com.example.pisane.data.shared_preferences_manager.*
+import com.example.pisane.databinding.ActivityGameBinding
+import com.example.pisane.model.card.*
+import com.example.pisane.R.anim.bounce
+import com.example.pisane.R.string.*
 
 class GameActivity : AppCompatActivity() {
 
@@ -36,14 +40,14 @@ class GameActivity : AppCompatActivity() {
         }
 
         private fun moveUp() {
-            val params = this.imageButton.layoutParams as ConstraintLayout.LayoutParams
+            val params = imageButton.layoutParams as ConstraintLayout.LayoutParams
             params.topToTop = binding.gTop81Guideline.id
             params.bottomToBottom = binding.gTop94Guideline.id
             imageButton.requestLayout()
         }
 
         fun moveDown() {
-            val params = this.imageButton.layoutParams as ConstraintLayout.LayoutParams
+            val params = imageButton.layoutParams as ConstraintLayout.LayoutParams
             params.topToTop = binding.gTop85Guideline.id
             params.bottomToBottom = binding.gTop98Guideline.id
             imageButton.requestLayout()
@@ -129,7 +133,6 @@ class GameActivity : AppCompatActivity() {
 
         game.updateGamesTable()
         binding.gResultsRecyclerView.adapter!!.notifyDataSetChanged()
-
     }
 
     private fun chooseGameButtonHandling(gamePosition: Int) {
@@ -162,8 +165,8 @@ class GameActivity : AppCompatActivity() {
         game = loadedGame
         updateCardImageButtons()
         val builder = AlertDialog.Builder(this)
-        builder.setTitle(R.string.confirm_load_game)
-        builder.setMessage(R.string.confirm_load_game_message)
+        builder.setTitle(confirm_load_game)
+        builder.setMessage(confirm_load_game_message)
         builder.setPositiveButton(R.string.yes, DialogInterface.OnClickListener { dialog, _ ->
             dialog.cancel()
         })
@@ -186,7 +189,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun endGame() {
         Toast.makeText(this,
-            "Game ended with ${game.gamesTable.tableTotalScore}", Toast.LENGTH_LONG).show()
+                "Game ended with ${game.gamesTable.tableTotalScore}", Toast.LENGTH_LONG).show()
     }
 
     private fun updateCardImageButtons() {
@@ -202,5 +205,15 @@ class GameActivity : AppCompatActivity() {
         cardsImageButtons.forEach { cardImageButton ->
             cardImageButton.moveDown()
         }
+    }
+
+    fun didTapButton(view: View?) {
+        val button = binding.gDrawImageButton
+        val myAnim = AnimationUtils.loadAnimation(this, bounce)
+
+        // Use bounce interpolator with amplitude 0.2 and frequency 20
+        val interpolator = MyBounceInterpolator(0.2, 20)
+        myAnim.interpolator = interpolator
+        button.startAnimation(myAnim)
     }
 }

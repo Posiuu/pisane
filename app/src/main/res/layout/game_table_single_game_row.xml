@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/scores_background"
-    android:scaleType="fitXY">
+    android:scaleType="fitXY"
+    tools:ignore="InOrMmUsage">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/grStart38Guideline"
@@ -43,8 +44,8 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
         android:textColor="@color/black"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/grStart38Guideline"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,8 +82,8 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
         android:textColor="@color/black"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/grStart77Guideline"
         app:layout_constraintStart_toEndOf="@+id/grStart38Guideline"
@@ -93,30 +94,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
         android:textColor="@color/dark_green"
-        android:textSize="16sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/grStart67Guideline"
-        app:layout_constraintStart_toStartOf="@+id/grStart58Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/grGreenArrowImageButton"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/grRedCrossImageButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/transparent"
-        android:scaleType="fitXY"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/grStart77Guideline"
-        app:layout_constraintStart_toEndOf="@+id/grStart67Guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/red_cross_image" />
-
-    <ImageButton
-        android:id="@+id/grGreenArrowImageButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="2dp"
@@ -126,9 +115,24 @@
         android:background="@color/transparent"
         android:scaleType="fitXY"
         android:visibility="invisible"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/grStart77Guideline"
-        app:layout_constraintStart_toEndOf="@+id/grStart67Guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/red_cross_image" />
+
+    <ImageButton
+        android:id="@+id/grGreenArrowImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/grStart77Guideline"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/green_arrow_image" />
 
@@ -148,8 +152,8 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
         android:textColor="@color/black"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/grStart77Guideline"

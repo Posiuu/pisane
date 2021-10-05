@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.pisane.R
@@ -58,7 +59,7 @@ class GamesTableRecyclerViewAdapter(
             RecordType.HEADER -> RecordViewHolder(LayoutInflater.from(context)
                     .inflate(R.layout.game_table_headers_row, parent, false))
             RecordType.YELLOW -> RecordViewHolder(LayoutInflater.from(context)
-                    .inflate(R.layout.game_table_single_game_row, parent, false))
+                        .inflate(R.layout.game_table_single_game_row, parent, false))
             RecordType.WHITE -> RecordViewHolder(LayoutInflater.from(context)
                     .inflate(R.layout.game_table_single_game_row2, parent, false))
             else -> throw NoSuchElementException("Unknown game row view type.")
