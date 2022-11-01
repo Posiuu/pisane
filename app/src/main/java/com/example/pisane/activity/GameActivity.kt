@@ -1,4 +1,4 @@
-package com.example.pisane
+package com.example.pisane.activity
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.pisane.R
 import com.example.pisane.adapter.*
 import com.example.pisane.anims.MyBounceInterpolator
 import com.example.pisane.controler.game.*

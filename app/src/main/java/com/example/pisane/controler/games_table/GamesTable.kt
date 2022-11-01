@@ -2,11 +2,13 @@ package com.example.pisane.controler.games_table
 
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
+import android.widget.Toast
 import com.example.pisane.data.game_table_records.*
 import com.example.pisane.model.game_table_record.*
 
 class GamesTable() {
-    val data = gameTableScoresList
+    val data = gameTableScoresList.map{it.copy()} // copy list to clear data
+
     private var totalScoreIndex = 1
     var tableTotalScore = 0
 

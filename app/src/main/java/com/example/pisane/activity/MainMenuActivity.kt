@@ -1,20 +1,35 @@
-package com.example.pisane
+package com.example.pisane.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pisane.data.shared_preferences_manager.PREF_USERNAME
+import com.example.pisane.data.shared_preferences_manager.SharedPreferencesManager
 import com.example.pisane.databinding.ActivityMainMenuBinding
 
 
 class MainMenuActivity : AppCompatActivity() {
 
+    private val activity = this@MainMenuActivity
     private lateinit var binding: ActivityMainMenuBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val logedInUsername = sharedPreferencesManager.getObject<String>(PREF_USERNAME)
+
+        if (logedInUsername == null) {
+            binding.mmWelcomeTextView.text = "Witaj nieznany"
+        }
+        else {
+            binding.mmWelcomeTextView.text = "Witaj $logedInUsername"
+        }
 
         binding.mmSettingsImageButton.setOnClickListener {
             settingsButtonHandling()
@@ -46,10 +61,8 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun settingsButtonHandling() {
-        Toast.makeText(
-                this, "Ustawienia będą wkrótce dostępne",
-                Toast.LENGTH_SHORT
-        ).show()
+        val intent = Intent(activity, SettingsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun randomCardsButtonHandling() {

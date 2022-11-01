@@ -41,4 +41,17 @@ class GameTableRecord() {
         this.type = recordType
         this.name = name
     }
+
+    fun copy(): GameTableRecord {
+        val newRecord: GameTableRecord
+
+        if (this.type == RecordType.HEADER){
+            newRecord = GameTableRecord(this.name, this.score, this.totalScore)
+        }
+        else {
+            newRecord = GameTableRecord(this.name, this.type)
+        }
+
+        return newRecord
+    }
 }

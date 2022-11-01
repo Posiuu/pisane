@@ -10,6 +10,7 @@ android {
     defaultConfig {
         applicationId "com.example.pisane"
         minSdkVersion 16
+        multiDexEnabled true
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -53,6 +54,9 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:cardview-v7:28.0.0'
+    // database jdbc
+    // implementation fileTree(dir: 'C:\\Program Files (x86)\\MySQL\\Connector J 8.0', include: ['*.aar', '*.jar'], exclude: [])
+    implementation 'mysql:mysql-connector-java:5.1.49'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

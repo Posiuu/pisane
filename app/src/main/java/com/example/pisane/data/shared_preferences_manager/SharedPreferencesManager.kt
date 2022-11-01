@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 
 const val PREF_FILE_NAME = "PREF_FILE_NAME"
 const val PREF_GAME = "PREF_GAME"
+const val PREF_USERNAME = "PREF_USERNAME"
 
 class SharedPreferencesManager (context: Context) {
     val sharedPreferences: SharedPreferences = context.getSharedPreferences(PREF_FILE_NAME,

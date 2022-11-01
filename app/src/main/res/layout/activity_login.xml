@@ -5,7 +5,7 @@
     android:id="@+id/lGameConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pisane.LoginActivity">
+    tools:context="com.example.pisane.activity.LoginActivity">
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:text="Login"
+        android:text="Logowanie"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="Username"
+        android:text="Nazwa Użytkownika"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/lStart08Guideline"
         app:layout_constraintTop_toTopOf="@+id/lTop20Guideline" />
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="Password"
+        android:text="Hasło"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/lStart08Guideline"
         app:layout_constraintTop_toTopOf="@+id/lTop35Guideline" />
@@ -94,7 +94,19 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:ems="12"
-        android:text="Login"
+        android:text="Zaloguj"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="92dp"
+        android:ems="12"
+        android:text="Zakładanie konta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />

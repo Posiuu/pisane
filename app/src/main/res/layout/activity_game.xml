@@ -5,7 +5,7 @@
     android:id="@+id/gGameConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameActivity">
+    tools:context=".activity.GameActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gTop01Guideline"
