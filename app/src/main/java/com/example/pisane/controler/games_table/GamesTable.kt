@@ -2,8 +2,7 @@ package com.example.pisane.controler.games_table
 
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
-import android.widget.Toast
-import com.example.pisane.data.game_table_records.*
+import com.example.pisane.data.gameTableScoresList
 import com.example.pisane.model.game_table_record.*
 
 class GamesTable() {
@@ -15,7 +14,7 @@ class GamesTable() {
     fun updateWithPossibleScores(possibleScores: List<Int>) {
         for (i in data.indices) {
             val record = data[i]
-            val isHeaderRow = record.type == RecordType.HEADER
+            val isHeaderRow = record.type == GameRecordType.HEADER
             if (isHeaderRow) {
                 continue
             }

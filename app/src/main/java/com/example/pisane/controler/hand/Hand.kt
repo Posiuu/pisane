@@ -1,7 +1,7 @@
 package com.example.pisane.controler.hand
 
 import com.example.pisane.controler.cards_sets_recognizer.*
-import com.example.pisane.data.cards.*
+import com.example.pisane.data.cards
 import com.example.pisane.model.card.*
 
 class Hand {

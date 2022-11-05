@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pisane.data.shared_preferences_manager.PREF_USERNAME
-import com.example.pisane.data.shared_preferences_manager.SharedPreferencesManager
+import com.example.pisane.controler.shared_preferences_manager.PREF_USERNAME
+import com.example.pisane.controler.shared_preferences_manager.SharedPreferencesManager
 import com.example.pisane.databinding.ActivityLoginBinding
-import com.example.pisane.other.BackgroundWorker
-import com.example.pisane.other.ResultStatus
+import com.example.pisane.controler.background_worker.LoginBackgroundWorker
+import com.example.pisane.controler.background_worker.common.RequestMethods
+import com.example.pisane.controler.background_worker.common.ResultStatus
+import com.example.pisane.controler.background_worker.common.login_url
 
 class LoginActivity : AppCompatActivity() {
 
@@ -37,9 +39,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(username: String, password: String) {
-        val type = "login"
-        val backgroundWorker = BackgroundWorker(this)
-        backgroundWorker.execute(type, username, password)
+        val backgroundWorker = LoginBackgroundWorker(this, login_url, RequestMethods.POST)
+        backgroundWorker.execute(username, password)
 
         val result = backgroundWorker.get().toString()
         when (result){

@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pisane.controler.background_worker.RegisterBackgroundWorker
+import com.example.pisane.controler.background_worker.common.RequestMethods
+import com.example.pisane.controler.background_worker.common.ResultStatus
+import com.example.pisane.controler.background_worker.common.register_url
 import com.example.pisane.databinding.ActivityRegisterBinding
-import com.example.pisane.other.BackgroundWorker
-import com.example.pisane.other.ResultStatus
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -35,9 +37,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun register(username: String, password: String) {
-        val type = "register"
-        val backgroundWorker = BackgroundWorker(this)
-        backgroundWorker.execute(type, username, password)
+        val backgroundWorker = RegisterBackgroundWorker(this, register_url, RequestMethods.POST)
+        backgroundWorker.execute(username, password)
 
         val result = backgroundWorker.get().toString()
         when (result){

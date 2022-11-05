@@ -3,7 +3,7 @@ package com.example.pisane.model.game_table_record
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 
-object RecordType{
+object GameRecordType{
     const val UNKNOWN = -1
     const val HEADER = 0
     const val YELLOW = 1
@@ -14,7 +14,7 @@ const val CROSSED_OUT = "0"
 const val NOT_PLAYED = ""
 
 class GameTableRecord() {
-    var type = RecordType.UNKNOWN
+    var type = GameRecordType.UNKNOWN
     lateinit var name: String
     var score = NOT_PLAYED
     var possibleScore = 0
@@ -28,7 +28,7 @@ class GameTableRecord() {
     var greedArrowVisibility = INVISIBLE
 
     constructor(nameHeader: String, scoreHeader: String, totalScoreHeader: String) : this() {
-        this.type = RecordType.HEADER
+        this.type = GameRecordType.HEADER
         this.name = nameHeader
         this.score = scoreHeader
         this.totalScore = totalScoreHeader
@@ -45,7 +45,7 @@ class GameTableRecord() {
     fun copy(): GameTableRecord {
         val newRecord: GameTableRecord
 
-        if (this.type == RecordType.HEADER){
+        if (this.type == GameRecordType.HEADER){
             newRecord = GameTableRecord(this.name, this.score, this.totalScore)
         }
         else {

@@ -1,4 +1,4 @@
-package com.example.pisane.data.shared_preferences_manager
+package com.example.pisane.controler.shared_preferences_manager
 
 import android.content.Context
 import android.content.SharedPreferences

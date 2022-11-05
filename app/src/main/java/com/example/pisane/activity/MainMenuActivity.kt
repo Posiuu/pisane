@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pisane.data.shared_preferences_manager.PREF_USERNAME
-import com.example.pisane.data.shared_preferences_manager.SharedPreferencesManager
+import com.example.pisane.controler.shared_preferences_manager.PREF_USERNAME
+import com.example.pisane.controler.shared_preferences_manager.SharedPreferencesManager
 import com.example.pisane.databinding.ActivityMainMenuBinding
 
 

@@ -1,4 +1,4 @@
-package com.example.pisane.data.cards
+package com.example.pisane.data
 
 import com.example.pisane.R
 import com.example.pisane.model.card.*
