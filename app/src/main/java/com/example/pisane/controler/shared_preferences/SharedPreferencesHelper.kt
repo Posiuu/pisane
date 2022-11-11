@@ -26,7 +26,7 @@ class SharedPreferencesHelper {
             val sharedPreferencesManager = SharedPreferencesManager(context)
 
             val prefString = getPrefStrBySetId(setId)
-            loadedGame = if (!prefString.isNullOrBlank()) {
+            loadedGame = if (prefString.isNotBlank()) {
                 sharedPreferencesManager.getObject<Game>(prefString)
             } else {
                 null
@@ -41,6 +41,12 @@ class SharedPreferencesHelper {
             gamePrefsList.forEach { prefString ->
                 sharedPreferencesManager.putObject(null, prefString)
             }
+        }
+
+        fun deleteSavedGame(context: Context, setId: Int) {
+            val sharedPreferencesManager = SharedPreferencesManager(context)
+            val prefString = getPrefStrBySetId(setId)
+            sharedPreferencesManager.putObject(null, prefString)
         }
 
         fun getPrefStrBySetId(setId: Int): String {

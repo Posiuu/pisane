@@ -159,22 +159,28 @@ class GameActivity : AppCompatActivity() {
             game = loadedGame
             cardImageButtonManager.updateCardImageButtons(game.currentHand.currentCards)
             selectedCardsIndices.clear()
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle(confirm_load_game)
-            builder.setMessage(confirm_load_game_message)
-            builder.setPositiveButton(yes) { dialog, _ ->
-                dialog.cancel()
+            if (setId == RANDOM_CARDS_ID){
+                showGameResetAlert()
             }
-            builder.setNegativeButton(no) { dialog, _ ->
-                startNewGame()
-                dialog.cancel()
-            }
-            val alert = builder.create()
-            alert.show()
         }
         else {
             startNewGame()
         }
+    }
+
+    private fun showGameResetAlert(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(confirm_load_game)
+        builder.setMessage(confirm_load_game_message)
+        builder.setPositiveButton(yes) { dialog, _ ->
+            dialog.cancel()
+        }
+        builder.setNegativeButton(no) { dialog, _ ->
+            startNewGame()
+            dialog.cancel()
+        }
+        val alert = builder.create()
+        alert.show()
     }
 
     private fun startNewGame() {
@@ -189,12 +195,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun endGame() {
         game.saveHighscore(this, setId)
-
-        if (setId != RANDOM_CARDS_ID) {
-            val sharedPreferencesManager = SharedPreferencesManager(this)
-            val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
-            CardSetsDAO.newSetPlayed(this, userId.toString(), setId.toString())
-        }
+        SharedPreferencesHelper.deleteSavedGame(this, setId)
 
         val intent = Intent(activity, HighscoresActivity::class.java)
         intent.putExtra(GAME_SET_ID, setId)

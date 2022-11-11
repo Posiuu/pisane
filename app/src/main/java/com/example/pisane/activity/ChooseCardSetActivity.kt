@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.pisane.consts.GAME_SET_ID
 import com.example.pisane.controler.DAOs.CardSetsDAO
 import com.example.pisane.controler.shared_preferences.PREF_USER_ID
+import com.example.pisane.controler.shared_preferences.SharedPreferencesHelper
 import com.example.pisane.controler.shared_preferences.SharedPreferencesManager
 import com.example.pisane.databinding.ActivityChooseCardSetBinding
 
@@ -63,8 +64,9 @@ class ChooseCardSetActivity : AppCompatActivity() {
         val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
 
         val isSetPlayed = CardSetsDAO.isSetPlayed(this, userId.toString(), setId.toString())
+        val loadedGame = SharedPreferencesHelper.getLoadedGame(this, setId)
 
-        if (isSetPlayed) {
+        if (isSetPlayed && loadedGame == null) {
             val intent = Intent(this, HighscoresActivity::class.java)
             intent.putExtra(GAME_SET_ID, setId)
             startActivity(intent)

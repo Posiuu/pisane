@@ -2,9 +2,12 @@ package com.example.pisane.controler.game
 
 import android.content.Context
 import com.example.pisane.consts.RANDOM_CARDS_ID
+import com.example.pisane.controler.DAOs.CardSetsDAO
 import com.example.pisane.controler.card_sets.CardSetsManager
+import com.example.pisane.controler.shared_preferences.PREF_USER_ID
 import com.example.pisane.controler.shared_preferences.SharedPreferencesHelper.Companion.gamePrefsList
 import com.example.pisane.controler.shared_preferences.SharedPreferencesHelper.Companion.getPrefStrBySetId
+import com.example.pisane.controler.shared_preferences.SharedPreferencesManager
 import com.example.pisane.data.cards
 import com.example.pisane.data.gamesCount
 import com.example.pisane.model.Card
@@ -33,6 +36,10 @@ class GameManager {
                 }
 
                 newGame = Game(cardOrders)
+
+                val sharedPreferencesManager = SharedPreferencesManager(context)
+                val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+                CardSetsDAO.newSetPlayed(context, userId.toString(), setId.toString())
             }
             else {
                 throw Error("Error: SetId not in saved games sets.")
