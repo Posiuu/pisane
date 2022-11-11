@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pisane.consts.GAME_SET_ID
-import com.example.pisane.controler.DAOs.CardSetsDAO
+import com.example.pisane.controler.daos.CardSetsDAO
 import com.example.pisane.controler.shared_preferences.PREF_USER_ID
 import com.example.pisane.controler.shared_preferences.SharedPreferencesHelper
 import com.example.pisane.controler.shared_preferences.SharedPreferencesManager

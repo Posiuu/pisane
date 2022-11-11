@@ -3,7 +3,7 @@ package com.example.pisane.controler.game
 import android.content.Context
 import com.example.pisane.controler.games_table.*
 import com.example.pisane.controler.hand.*
-import com.example.pisane.controler.DAOs.HighscoreDAO
+import com.example.pisane.controler.daos.HighscoreDAO
 import com.example.pisane.controler.shared_preferences.*
 import com.example.pisane.model.Card
 
@@ -34,7 +34,7 @@ class Game(private var cardOrders: List<List<Card>>) {
         val sharedPreferencesManager = SharedPreferencesManager(context)
 
         val prefString = SharedPreferencesHelper.getPrefStrBySetId(setId)
-        if (!prefString.isNullOrBlank()) {
+        if (prefString.isNotBlank()) {
             sharedPreferencesManager.putObject(this, prefString)
         }
     }
@@ -43,7 +43,7 @@ class Game(private var cardOrders: List<List<Card>>) {
         val sharedPreferencesManager = SharedPreferencesManager(context)
 
         val prefString = SharedPreferencesHelper.getPrefStrBySetId(setId)
-        if (!prefString.isNullOrBlank()) {
+        if (prefString.isNotBlank()) {
             sharedPreferencesManager.putObject(null, prefString)
         }
     }

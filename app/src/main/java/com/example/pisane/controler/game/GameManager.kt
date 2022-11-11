@@ -2,7 +2,7 @@ package com.example.pisane.controler.game
 
 import android.content.Context
 import com.example.pisane.consts.RANDOM_CARDS_ID
-import com.example.pisane.controler.DAOs.CardSetsDAO
+import com.example.pisane.controler.daos.CardSetsDAO
 import com.example.pisane.controler.card_sets.CardSetsManager
 import com.example.pisane.controler.shared_preferences.PREF_USER_ID
 import com.example.pisane.controler.shared_preferences.SharedPreferencesHelper.Companion.gamePrefsList

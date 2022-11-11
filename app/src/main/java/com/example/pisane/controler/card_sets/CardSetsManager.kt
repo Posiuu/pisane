@@ -1,7 +1,7 @@
 package com.example.pisane.controler.card_sets
 
 import android.content.Context
-import com.example.pisane.controler.DAOs.CardSetsDAO
+import com.example.pisane.controler.daos.CardSetsDAO
 import com.example.pisane.data.cards
 import com.example.pisane.data.gamesCount
 import com.example.pisane.model.CardSetComponent

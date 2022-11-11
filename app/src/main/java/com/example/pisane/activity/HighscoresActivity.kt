@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pisane.adapter.*
 import com.example.pisane.consts.GAME_SET_ID
-import com.example.pisane.controler.DAOs.HighscoreDAO
+import com.example.pisane.controler.daos.HighscoreDAO
 import com.example.pisane.databinding.ActivityHighscoresBinding
 import kotlin.properties.Delegates
 

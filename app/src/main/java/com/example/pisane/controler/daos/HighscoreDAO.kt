@@ -1,4 +1,4 @@
-package com.example.pisane.controler.DAOs
+package com.example.pisane.controler.daos
 
 import android.content.Context
 import com.example.pisane.controler.background_worker.GetHighscoresBackgroundWorker

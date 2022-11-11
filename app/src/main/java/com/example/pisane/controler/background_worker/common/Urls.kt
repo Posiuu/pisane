@@ -2,8 +2,8 @@ package com.example.pisane.controler.background_worker.common
 
 const val base_url = "https://piotrkroldev.online"
 
-const val login_php = "login.php"
-const val login_url = "${base_url}/${login_php}"
+const val passwordhash_php = "passwordhash.php"
+const val passwordhash_url = "${base_url}/${passwordhash_php}"
 
 const val register_php = "register.php"
 const val register_url = "${base_url}/${register_php}"

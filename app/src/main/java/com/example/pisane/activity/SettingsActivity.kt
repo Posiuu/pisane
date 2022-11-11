@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pisane.controler.shared_preferences.PREF_USERNAME
+import com.example.pisane.controler.shared_preferences.PREF_USER_ID
 import com.example.pisane.controler.shared_preferences.SharedPreferencesHelper
 import com.example.pisane.controler.shared_preferences.SharedPreferencesManager
 import com.example.pisane.databinding.ActivitySettingsBinding
@@ -33,6 +34,7 @@ class SettingsActivity : AppCompatActivity() {
         val sharedPreferencesManager = SharedPreferencesManager(this)
         val emptyUsername = ""
         sharedPreferencesManager.putObject(emptyUsername, PREF_USERNAME)
+        sharedPreferencesManager.putObject(null, PREF_USER_ID)
 
         // delete all saved games so new logged in person won't be able to access them
         SharedPreferencesHelper.deleteAllSavedGames(this)

@@ -1,13 +1,11 @@
 package com.example.pisane.activity
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pisane.R
 import com.example.pisane.adapter.*
 import com.example.pisane.anims.MyBounceInterpolator
 import com.example.pisane.controler.game.*
@@ -16,7 +14,6 @@ import com.example.pisane.databinding.ActivityGameBinding
 import com.example.pisane.R.anim.bounce
 import com.example.pisane.R.string.*
 import com.example.pisane.consts.*
-import com.example.pisane.controler.DAOs.CardSetsDAO
 import kotlin.properties.Delegates
 
 class GameActivity : AppCompatActivity() {

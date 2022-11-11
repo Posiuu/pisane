@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import at.favre.lib.crypto.bcrypt.BCrypt
 import com.example.pisane.controler.background_worker.RegisterBackgroundWorker
 import com.example.pisane.controler.background_worker.common.RequestMethods
 import com.example.pisane.controler.background_worker.common.ResultStatus
 import com.example.pisane.controler.background_worker.common.register_url
 import com.example.pisane.databinding.ActivityRegisterBinding
+import com.toxicbakery.bcrypt.Bcrypt.hash
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -20,25 +22,27 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnRegister.alpha = 0f;
-        binding.btnRegister.animate().alpha(1f).duration = 1500;
+        binding.btnRegister.alpha = 0f
+        binding.btnRegister.animate().alpha(1f).duration = 1500
 
         binding.btnRegister.setOnClickListener {
-            binding.btnRegister.alpha = 0f;
-            binding.btnRegister.animate().alpha(1f).duration = 1500;
+            binding.btnRegister.alpha = 0f
+            binding.btnRegister.animate().alpha(1f).duration = 1500
             register(binding.etUsername.text.toString(), binding.etPassword.text.toString())
         }
 
         binding.btnBackToLogin.setOnClickListener {
-            binding.btnBackToLogin.alpha = 0f;
-            binding.btnBackToLogin.animate().alpha(1f).duration = 1500;
+            binding.btnBackToLogin.alpha = 0f
+            binding.btnBackToLogin.animate().alpha(1f).duration = 1500
             backToLogin()
         }
     }
 
     private fun register(username: String, password: String) {
+        val passwordHashed = BCrypt.withDefaults().hashToString(12, password.toCharArray())
+
         val backgroundWorker = RegisterBackgroundWorker(this, register_url, RequestMethods.POST)
-        backgroundWorker.execute(username, password)
+        backgroundWorker.execute(username, passwordHashed)
 
         val result = backgroundWorker.get().toString()
         when (result){
