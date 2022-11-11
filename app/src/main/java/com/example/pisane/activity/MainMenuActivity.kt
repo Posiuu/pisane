@@ -5,8 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pisane.controler.shared_preferences_manager.PREF_USERNAME
-import com.example.pisane.controler.shared_preferences_manager.SharedPreferencesManager
+import com.example.pisane.consts.GAME_SET_ID
+import com.example.pisane.consts.RANDOM_CARDS_ID
+import com.example.pisane.controler.card_sets.CardSetsManager
+import com.example.pisane.controler.shared_preferences.PREF_USERNAME
+import com.example.pisane.controler.shared_preferences.SharedPreferencesManager
 import com.example.pisane.databinding.ActivityMainMenuBinding
 
 
@@ -21,15 +24,7 @@ class MainMenuActivity : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPreferencesManager = SharedPreferencesManager(this)
-        val logedInUsername = sharedPreferencesManager.getObject<String>(PREF_USERNAME)
-
-        if (logedInUsername == null) {
-            binding.mmWelcomeTextView.text = "Witaj nieznany"
-        }
-        else {
-            binding.mmWelcomeTextView.text = "Witaj $logedInUsername"
-        }
+        setUsername()
 
         binding.mmSettingsImageButton.setOnClickListener {
             settingsButtonHandling()
@@ -67,21 +62,18 @@ class MainMenuActivity : AppCompatActivity() {
 
     private fun randomCardsButtonHandling() {
         val intent = Intent(this, GameActivity::class.java)
+        intent.putExtra(GAME_SET_ID, RANDOM_CARDS_ID)
         startActivity(intent)
     }
 
     private fun cardsSetsButtonHandling() {
-        Toast.makeText(
-                this, "Tryb gry zestawy kart będzie wkrótce dostępny",
-                Toast.LENGTH_SHORT
-        ).show()
+        val intent = Intent(this, ChooseCardSetActivity::class.java)
+        startActivity(intent)
     }
 
     private fun scoresButtonHandling() {
-        Toast.makeText(
-                this, "Wyniki będą wkrótce dostępne",
-                Toast.LENGTH_SHORT
-        ).show()
+        val intent = Intent(this, ChooseHighscoresActivity::class.java)
+        startActivity(intent)
     }
 
     private fun rulesButtonHandling() {
@@ -103,5 +95,17 @@ class MainMenuActivity : AppCompatActivity() {
                 this, "Sklep będzie wkrótce dostępny",
                 Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun setUsername() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val logedInUsername = sharedPreferencesManager.getObject<String>(PREF_USERNAME)
+
+        if (logedInUsername == null) {
+            binding.mmWelcomeTextView.text = "Witaj nieznany"
+        }
+        else {
+            binding.mmWelcomeTextView.text = "Witaj $logedInUsername"
+        }
     }
 }

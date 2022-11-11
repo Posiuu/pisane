@@ -3,20 +3,21 @@ package com.example.pisane.controler.game
 import android.content.Context
 import com.example.pisane.controler.games_table.*
 import com.example.pisane.controler.hand.*
-import com.example.pisane.controler.highscore.HighscoreControler
-import com.example.pisane.controler.shared_preferences_manager.PREF_GAME
-import com.example.pisane.controler.shared_preferences_manager.PREF_USERNAME
-import com.example.pisane.controler.shared_preferences_manager.SharedPreferencesManager
+import com.example.pisane.controler.DAOs.HighscoreDAO
+import com.example.pisane.controler.shared_preferences.*
+import com.example.pisane.model.Card
 
-class Game() {
+class Game(private var cardOrders: List<List<Card>>) {
     lateinit var currentHand: Hand
     var gamesTable = GamesTable()
     private var handsCount = 0
 
     fun startHand() {
         handsCount++
-        currentHand = Hand()
-        updateGamesTable()
+        if (!isOver()){
+            currentHand = Hand(cardOrders[handsCount - 1])
+            updateGamesTable()
+        }
     }
 
     fun updateGamesTable() {
@@ -25,26 +26,36 @@ class Game() {
     }
 
     fun isOver(): Boolean {
-        return handsCount == gamesTable.data.size
+//        return handsCount == gamesTable.data.size
+        return handsCount == 3
     }
 
-    fun saveGame(context: Context) {
+    fun saveGame(context: Context, setId: Int) {
         val sharedPreferencesManager = SharedPreferencesManager(context)
-        sharedPreferencesManager.putObject(this, PREF_GAME)
+
+        val prefString = SharedPreferencesHelper.getPrefStrBySetId(setId)
+        if (!prefString.isNullOrBlank()) {
+            sharedPreferencesManager.putObject(this, prefString)
+        }
     }
 
-    fun deleteGame(context: Context) {
+    fun deleteGame(context: Context, setId: Int) {
         val sharedPreferencesManager = SharedPreferencesManager(context)
-        sharedPreferencesManager.putObject(null, PREF_GAME)
+
+        val prefString = SharedPreferencesHelper.getPrefStrBySetId(setId)
+        if (!prefString.isNullOrBlank()) {
+            sharedPreferencesManager.putObject(null, prefString)
+        }
     }
 
-    fun saveHighscore(context: Context) {
+    fun saveHighscore(context: Context, setId: Int) {
         val sharedPreferencesManager = SharedPreferencesManager(context)
         val nick = sharedPreferencesManager.getObject<String>(PREF_USERNAME)
+        val user_id = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
         val score = gamesTable.tableTotalScore
 
         if (nick != null && score != 0) {
-            HighscoreControler.newHighscore(context, nick, score.toString())
+            HighscoreDAO.newHighscore(context, nick, score.toString(), user_id.toString(), setId.toString())
         }
     }
 }

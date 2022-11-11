@@ -86,3 +86,5 @@ val gameTableScoresList = listOf(
         GameTableRecord(gameNames[37], GameRecordType.WHITE),
         GameTableRecord(gameNames[38], GameRecordType.YELLOW)
 )
+
+val gamesCount = gameTableScoresList.size - 1

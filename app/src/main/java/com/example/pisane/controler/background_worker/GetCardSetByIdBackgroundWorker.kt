@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.pisane.controler.background_worker.common.RequestMethods
 import java.net.URLEncoder
 
-class GetHighscoresBackgroundWorker(ctx: Context, urlString: String, requestMethod: RequestMethods) : AbstractBackgroundWorker(ctx, urlString, requestMethod) {
+class GetCardSetByIdBackgroundWorker(ctx: Context, urlString: String, requestMethod: RequestMethods) : AbstractBackgroundWorker(ctx, urlString, requestMethod) {
     override fun getPostDataString(params: Array<out String?>): String {
         val postData: String
 

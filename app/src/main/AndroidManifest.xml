@@ -35,6 +35,12 @@
         <activity
             android:name=".activity.HighscoresActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChooseCardSetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChooseHighscoresActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

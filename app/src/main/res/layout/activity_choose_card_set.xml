@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ccGameConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.GameActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccTop10Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccTop25Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccTop40Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccTop55Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccTop70Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <TextView
+        android:id="@+id/ccTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Wybierz zestaw"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop10Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ccSet1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 1"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop25Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet2Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ccTop10Guideline" />
+
+    <Button
+        android:id="@+id/ccSet2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 2"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop25Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet3Button"
+        app:layout_constraintStart_toEndOf="@+id/ccSet1Button"
+        app:layout_constraintTop_toTopOf="@+id/ccTop10Guideline" />
+
+    <Button
+        android:id="@+id/ccSet3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 3"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop25Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ccSet2Button"
+        app:layout_constraintTop_toTopOf="@+id/ccTop10Guideline" />
+
+    <Button
+        android:id="@+id/ccSet4Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 4"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop40Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet2Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ccTop25Guideline" />
+
+    <Button
+        android:id="@+id/ccSet5Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 5"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop40Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet3Button"
+        app:layout_constraintStart_toEndOf="@+id/ccSet1Button"
+        app:layout_constraintTop_toTopOf="@+id/ccTop25Guideline" />
+
+    <Button
+        android:id="@+id/ccSet6Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 6"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop40Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ccSet2Button"
+        app:layout_constraintTop_toTopOf="@+id/ccTop25Guideline" />
+
+    <Button
+        android:id="@+id/ccSet7Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 7"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop55Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet2Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ccTop40Guideline" />
+
+    <Button
+        android:id="@+id/ccSet8Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 8"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop55Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet3Button"
+        app:layout_constraintStart_toEndOf="@+id/ccSet1Button"
+        app:layout_constraintTop_toTopOf="@+id/ccTop40Guideline" />
+
+    <Button
+        android:id="@+id/ccSet9Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 9"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop55Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ccSet2Button"
+        app:layout_constraintTop_toTopOf="@+id/ccTop40Guideline" />
+
+    <Button
+        android:id="@+id/ccSet10Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 10"
+        app:layout_constraintBottom_toTopOf="@+id/ccTop70Guideline"
+        app:layout_constraintEnd_toEndOf="@+id/ccSet7Button"
+        app:layout_constraintStart_toStartOf="@+id/ccSet7Button"
+        app:layout_constraintTop_toTopOf="@+id/ccTop55Guideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

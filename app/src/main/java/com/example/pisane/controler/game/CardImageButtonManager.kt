@@ -1,9 +1,9 @@
 package com.example.pisane.controler.game
 
 import android.widget.ImageButton
-import com.example.pisane.model.card.Card
+import com.example.pisane.model.Card
 
-class CardImageButtonManager(private val imageButtons: List<ImageButton>, private val guidelines: HashMap<String, Int>) {
+class CardImageButtonManager(imageButtons: List<ImageButton>, guidelines: HashMap<String, Int>) {
     val cardsImageButtons = listOf(
             CardImageButton(imageButtons[0], 0, guidelines),
             CardImageButton(imageButtons[1], 1, guidelines),

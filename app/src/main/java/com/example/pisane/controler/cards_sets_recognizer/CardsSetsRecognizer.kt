@@ -1,6 +1,8 @@
 package com.example.pisane.controler.cards_sets_recognizer
 
-import com.example.pisane.model.card.*
+import com.example.pisane.model.Card
+import com.example.pisane.model.CardColor
+import com.example.pisane.model.CardFigure
 
 class CardsSetsRecognizer {
     fun getAllGamesScores(cards: List<Card>): List<Int> {

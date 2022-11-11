@@ -1,4 +1,4 @@
-package com.example.pisane.model.card
+package com.example.pisane.model
 
 object CardColor {
     const val DIAMOND = 0

@@ -8,5 +8,5 @@ const val NICK_HEADER = "Nick"
 const val SCORE_HEADER = "Wynik"
 
 val highscoresEmptyList = listOf(
-        Highscore(HighscoreRecordType.HEADER, PLACE_HEADER, NICK_HEADER, SCORE_HEADER)
+        Highscore(HighscoreRecordType.HEADER, PLACE_HEADER, NICK_HEADER, SCORE_HEADER, "0")
 )

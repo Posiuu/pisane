@@ -11,15 +11,13 @@ import com.example.pisane.R
 import com.example.pisane.adapter.*
 import com.example.pisane.anims.MyBounceInterpolator
 import com.example.pisane.controler.game.*
-import com.example.pisane.controler.shared_preferences_manager.*
+import com.example.pisane.controler.shared_preferences.*
 import com.example.pisane.databinding.ActivityGameBinding
-import com.example.pisane.model.card.*
 import com.example.pisane.R.anim.bounce
 import com.example.pisane.R.string.*
-import com.example.pisane.consts.DOWN_BOT_TO_BOT
-import com.example.pisane.consts.DOWN_TOP_TO_TOP
-import com.example.pisane.consts.UP_BOT_TO_BOT
-import com.example.pisane.consts.UP_TOP_TO_TOP
+import com.example.pisane.consts.*
+import com.example.pisane.controler.DAOs.CardSetsDAO
+import kotlin.properties.Delegates
 
 class GameActivity : AppCompatActivity() {
 
@@ -30,12 +28,15 @@ class GameActivity : AppCompatActivity() {
 
     private val selectedCardsIndices: MutableList<Int> = mutableListOf()
 
+    private var setId by Delegates.notNull<Int>()
     private lateinit var game: Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setId = intent.getIntExtra(GAME_SET_ID, -1)
 
         cardImageButtonManager = getCardButtonManager()
 
@@ -73,10 +74,10 @@ class GameActivity : AppCompatActivity() {
         super.onPause()
 
         if (game.isOver()) {
-            game.deleteGame(this)
+            game.deleteGame(this, setId)
         }
         else {
-            game.saveGame(this)
+            game.saveGame(this, setId)
         }
     }
 
@@ -152,7 +153,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun loadGameOrStartNewOne() {
-        val loadedGame = GameManager.getLoadedGame(this)
+        val loadedGame = SharedPreferencesHelper.getLoadedGame(this, setId)
 
         if (loadedGame != null){
             game = loadedGame
@@ -161,13 +162,13 @@ class GameActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             builder.setTitle(confirm_load_game)
             builder.setMessage(confirm_load_game_message)
-            builder.setPositiveButton(R.string.yes, DialogInterface.OnClickListener { dialog, _ ->
+            builder.setPositiveButton(yes) { dialog, _ ->
                 dialog.cancel()
-            })
-            builder.setNegativeButton(R.string.no, DialogInterface.OnClickListener { dialog, _ ->
+            }
+            builder.setNegativeButton(no) { dialog, _ ->
                 startNewGame()
                 dialog.cancel()
-            })
+            }
             val alert = builder.create()
             alert.show()
         }
@@ -177,7 +178,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun startNewGame() {
-        game = Game()
+        game = GameManager.startNewGame(this, setId)
         game.startHand()
 
         cardImageButtonManager.updateCardImageButtons(game.currentHand.currentCards)
@@ -187,9 +188,16 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun endGame() {
-        game.saveHighscore(this)
+        game.saveHighscore(this, setId)
+
+        if (setId != RANDOM_CARDS_ID) {
+            val sharedPreferencesManager = SharedPreferencesManager(this)
+            val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+            CardSetsDAO.newSetPlayed(this, userId.toString(), setId.toString())
+        }
 
         val intent = Intent(activity, HighscoresActivity::class.java)
+        intent.putExtra(GAME_SET_ID, setId)
         startActivity(intent)
         finish()
 

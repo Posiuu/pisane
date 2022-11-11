@@ -6,7 +6,7 @@ import com.example.pisane.consts.DOWN_BOT_TO_BOT
 import com.example.pisane.consts.DOWN_TOP_TO_TOP
 import com.example.pisane.consts.UP_BOT_TO_BOT
 import com.example.pisane.consts.UP_TOP_TO_TOP
-import com.example.pisane.model.card.Card
+import com.example.pisane.model.Card
 
 class CardImageButton(private val imageButton: ImageButton, private val index: Int, private val guidelines: HashMap<String, Int>) {
     var isSelected: Boolean = false

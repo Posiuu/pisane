@@ -1,11 +1,9 @@
 package com.example.pisane.controler.hand
 
 import com.example.pisane.controler.cards_sets_recognizer.*
-import com.example.pisane.data.cards
-import com.example.pisane.model.card.*
+import com.example.pisane.model.Card
 
-class Hand {
-    private var availableCards = cards.shuffled()
+class Hand(private var availableCards: List<Card>) {
     lateinit var currentCards: MutableList<Card>
     private var drawsCount = 0
 

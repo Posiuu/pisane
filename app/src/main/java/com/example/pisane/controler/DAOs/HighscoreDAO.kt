@@ -1,4 +1,4 @@
-package com.example.pisane.controler.highscore
+package com.example.pisane.controler.DAOs
 
 import android.content.Context
 import com.example.pisane.controler.background_worker.GetHighscoresBackgroundWorker
@@ -10,13 +10,13 @@ import com.example.pisane.model.HighscoreRecordType
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class HighscoreControler {
+class HighscoreDAO {
     companion object {
-        fun getHighscores(context: Context): MutableList<Highscore> {
+        fun getHighscores(context: Context, setId: String = "0"): MutableList<Highscore> {
             val highscoresList = highscoresEmptyList.map{it.copy()} as MutableList
 
             val backgroundWorker = GetHighscoresBackgroundWorker(context, highscores_url, RequestMethods.POST)
-            backgroundWorker.execute()
+            backgroundWorker.execute(setId)
             val highscoresResponse = backgroundWorker.get().toString()
 
             val gson = Gson()
@@ -28,7 +28,7 @@ class HighscoreControler {
             for ((place, mappedHighscore) in mappedHighscoresSorted.withIndex()) {
                 val placeString = (place + 1).toString()
                 val recordType = if (isBright) HighscoreRecordType.BRIGHT else HighscoreRecordType.DARK
-                val highscore = Highscore(recordType, placeString, mappedHighscore.nick, mappedHighscore.score)
+                val highscore = Highscore(recordType, placeString, mappedHighscore.nick, mappedHighscore.score, setId)
                 highscoresList.add(highscore)
                 isBright = !isBright
             }
@@ -36,11 +36,11 @@ class HighscoreControler {
             return highscoresList
         }
 
-        fun newHighscore(context: Context, nick: String, score: String): Boolean {
+        fun newHighscore(context: Context, nick: String, score: String, user_id: String, set_id: String): Boolean {
             var isSuccess = false
 
             val backgroundWorker = NewHighscoreBackgroundWorker(context, new_highscore_url, RequestMethods.POST)
-            backgroundWorker.execute(nick, score)
+            backgroundWorker.execute(nick, score, user_id, set_id)
 
             val result = backgroundWorker.get().toString()
             when (result){

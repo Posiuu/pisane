@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chGameConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.GameActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chTop25Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chTop10Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chTop40Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chTop55Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chTop70Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/chTop85Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <TextView
+        android:id="@+id/chTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Wybierz zestaw"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/chTop10Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/chSet1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 1"
+        app:layout_constraintBottom_toTopOf="@+id/chTop40Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/chSet2Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chTop25Guideline" />
+
+    <Button
+        android:id="@+id/chSet2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 2"
+        app:layout_constraintBottom_toTopOf="@+id/chTop40Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/chSet3Button"
+        app:layout_constraintStart_toEndOf="@+id/chSet1Button"
+        app:layout_constraintTop_toTopOf="@+id/chTop25Guideline" />
+
+    <Button
+        android:id="@+id/chSet3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 3"
+        app:layout_constraintBottom_toTopOf="@+id/chTop40Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chSet2Button"
+        app:layout_constraintTop_toTopOf="@+id/chTop25Guideline" />
+
+    <Button
+        android:id="@+id/chSet4Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 4"
+        app:layout_constraintBottom_toTopOf="@+id/chTop55Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/chSet2Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chTop40Guideline" />
+
+    <Button
+        android:id="@+id/chSet5Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 5"
+        app:layout_constraintBottom_toTopOf="@+id/chTop55Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/chSet3Button"
+        app:layout_constraintStart_toEndOf="@+id/chSet1Button"
+        app:layout_constraintTop_toTopOf="@+id/chTop40Guideline" />
+
+    <Button
+        android:id="@+id/chSet6Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 6"
+        app:layout_constraintBottom_toTopOf="@+id/chTop55Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chSet2Button"
+        app:layout_constraintTop_toTopOf="@+id/chTop40Guideline" />
+
+    <Button
+        android:id="@+id/chSet7Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 7"
+        app:layout_constraintBottom_toTopOf="@+id/chTop70Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/chSet2Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chTop55Guideline" />
+
+    <Button
+        android:id="@+id/chSet8Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 8"
+        app:layout_constraintBottom_toTopOf="@+id/chTop70Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/chSet3Button"
+        app:layout_constraintStart_toEndOf="@+id/chSet1Button"
+        app:layout_constraintTop_toTopOf="@+id/chTop55Guideline" />
+
+    <Button
+        android:id="@+id/chSet9Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 9"
+        app:layout_constraintBottom_toTopOf="@+id/chTop70Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chSet2Button"
+        app:layout_constraintTop_toTopOf="@+id/chTop55Guideline" />
+
+    <Button
+        android:id="@+id/chSet10Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zestaw 10"
+        app:layout_constraintBottom_toTopOf="@+id/chTop85Guideline"
+        app:layout_constraintEnd_toEndOf="@+id/chSet7Button"
+        app:layout_constraintStart_toStartOf="@+id/chSet7Button"
+        app:layout_constraintTop_toTopOf="@+id/chTop70Guideline" />
+
+    <Button
+        android:id="@+id/chRandomSetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOSOWE KARTY"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/chTop25Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chTop10Guideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

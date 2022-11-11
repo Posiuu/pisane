@@ -1,7 +1,9 @@
 package com.example.pisane.data
 
 import com.example.pisane.R
-import com.example.pisane.model.card.*
+import com.example.pisane.model.Card
+import com.example.pisane.model.CardColor
+import com.example.pisane.model.CardFigure
 
 val cards = listOf(
         Card(CardColor.DIAMOND, CardFigure.F2, 2, R.drawable.d2),
