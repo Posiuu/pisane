@@ -35,6 +35,7 @@ android {
         viewBinding true
         dataBinding true
     }
+    namespace 'com.pisane.pisane'
 }
 
 dependencies {
