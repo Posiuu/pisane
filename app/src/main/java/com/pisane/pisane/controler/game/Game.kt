@@ -53,8 +53,8 @@ class Game(private var cardOrders: List<List<Card>>) {
         val user_id = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
         val score = gamesTable.tableTotalScore
 
-        if (nick != null && score != 0) {
-            HighscoreDAO.newHighscore(context, nick, score.toString(), user_id.toString(), setId.toString())
-        }
+        //if (nick != null && score != 0) {
+        //    HighscoreDAO.newHighscore(context, nick, score.toString(), user_id.toString(), setId.toString())
+        //}
     }
 }

@@ -63,7 +63,8 @@ class ChooseCardSetActivity : AppCompatActivity() {
         val sharedPreferencesManager = SharedPreferencesManager(this)
         val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
 
-        val isSetPlayed = CardSetsDAO.isSetPlayed(this, userId.toString(), setId.toString())
+        //val isSetPlayed = CardSetsDAO.isSetPlayed(this, userId.toString(), setId.toString())
+        val isSetPlayed = false
         val loadedGame = SharedPreferencesHelper.getLoadedGame(this, setId)
 
         if (isSetPlayed && loadedGame == null) {

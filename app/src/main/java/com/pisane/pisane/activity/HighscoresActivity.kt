@@ -20,7 +20,7 @@ class HighscoresActivity : AppCompatActivity() {
 
         setId = intent.getIntExtra(GAME_SET_ID, -1)
 
-        val highscoresList = HighscoreDAO.getHighscores(this, setId.toString())
-        binding.hHighscoresRecyclerView.adapter = HighscoresTableRecyclerViewAdapter(this, highscoresList)
+        //val highscoresList = HighscoreDAO.getHighscores(this, setId.toString())
+        //binding.hHighscoresRecyclerView.adapter = HighscoresTableRecyclerViewAdapter(this, highscoresList)
     }
 }

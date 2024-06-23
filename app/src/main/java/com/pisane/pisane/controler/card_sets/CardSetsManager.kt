@@ -11,15 +11,15 @@ class CardSetsManager {
         fun getCardSetBySetId(context: Context, setId: Int): List<CardSetComponent> {
             var cardSet = mutableListOf<CardSetComponent>()
 
-            val cardSetAllStr = CardSetsDAO.getCardsSet(context, setId.toString())
+            //val cardSetAllStr = CardSetsDAO.getCardsSet(context, setId.toString())
 
-            cardSetAllStr.forEach { cardSetComponentAllStr ->
-                val dealNumber = cardSetComponentAllStr.deal_number.toInt()
-                val cardsOrder = cardSetComponentAllStr.cards_order
-                val setId = cardSetComponentAllStr.set_id.toInt()
-                val cardSetComponent = CardSetComponent(dealNumber, cardsOrder, setId)
-                cardSet.add(cardSetComponent)
-            }
+            //cardSetAllStr.forEach { cardSetComponentAllStr ->
+            //    val dealNumber = cardSetComponentAllStr.deal_number.toInt()
+            //    val cardsOrder = cardSetComponentAllStr.cards_order
+            //    val setId = cardSetComponentAllStr.set_id.toInt()
+            //    val cardSetComponent = CardSetComponent(dealNumber, cardsOrder, setId)
+            //    cardSet.add(cardSetComponent)
+            //}
 
             cardSet = cardSet.sortedBy { it.dealNumber } as MutableList<CardSetComponent>
 
@@ -28,12 +28,12 @@ class CardSetsManager {
 
         // not used anywhere but when there will be the need to add new cards sets you can call this method
         fun addNewCardsSet(context: Context, setId: Int) {
-            CardSetsDAO.newCardsSet(context, setId.toString())
-
-            val cardSetComponents = generateCardSetComponents(setId)
-            cardSetComponents.forEach { cardSetComponent ->
-                CardSetsDAO.newCardsSetComponent(context, cardSetComponent.dealNumber.toString(), cardSetComponent.cardsOrder, cardSetComponent.setId.toString())
-            }
+            //CardSetsDAO.newCardsSet(context, setId.toString())
+//
+            //val cardSetComponents = generateCardSetComponents(setId)
+            //cardSetComponents.forEach { cardSetComponent ->
+            //    CardSetsDAO.newCardsSetComponent(context, cardSetComponent.dealNumber.toString(), cardSetComponent.cardsOrder, cardSetComponent.setId.toString())
+            //}
         }
 
         fun generateCardSetComponents(setId: Int): List<CardSetComponent> {

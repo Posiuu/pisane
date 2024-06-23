@@ -1,54 +1,54 @@
 package com.pisane.pisane.controler.daos
 
 import android.content.Context
-import com.pisane.pisane.controler.background_worker.GetHighscoresBackgroundWorker
-import com.pisane.pisane.controler.background_worker.NewHighscoreBackgroundWorker
-import com.pisane.pisane.controler.background_worker.common.*
 import com.pisane.pisane.data.highscoresEmptyList
 import com.pisane.pisane.model.Highscore
 import com.pisane.pisane.model.HighscoreRecordType
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.pisane.pisane.consts.highscores_url
+import com.pisane.pisane.consts.new_highscore_url
+import com.pisane.pisane.enums.ResultStatus
 
 class HighscoreDAO {
     companion object {
-        fun getHighscores(context: Context, setId: String = "0"): MutableList<Highscore> {
-            val highscoresList = highscoresEmptyList.map{it.copy()} as MutableList
+       // fun getHighscores(context: Context, setId: String = "0"): MutableList<Highscore> {
+       //     val highscoresList = highscoresEmptyList.map{it.copy()} as MutableList
+//
+       //     val backgroundWorker = GetHighscoresBackgroundWorker(context, highscores_url, RequestMethods.POST)
+       //     backgroundWorker.execute(setId)
+       //     val highscoresResponse = backgroundWorker.get().toString()
+//
+       //     val gson = Gson()
+       //     val highscoresListType = object : TypeToken<List<Highscore>>() {}.type
+       //     val mappedHighscoresResponse: List<Highscore> = gson.fromJson(highscoresResponse, highscoresListType)
+       //     val mappedHighscoresSorted = mappedHighscoresResponse.sortedByDescending { it.score.toInt() }
+//
+       //     var isBright = true
+       //     for ((place, mappedHighscore) in mappedHighscoresSorted.withIndex()) {
+       //         val placeString = (place + 1).toString()
+       //         val recordType = if (isBright) HighscoreRecordType.BRIGHT else HighscoreRecordType.DARK
+       //         val highscore = Highscore(recordType, placeString, mappedHighscore.nick, mappedHighscore.score, setId)
+       //         highscoresList.add(highscore)
+       //         isBright = !isBright
+       //     }
+//
+       //     return highscoresList
+       // }
 
-            val backgroundWorker = GetHighscoresBackgroundWorker(context, highscores_url, RequestMethods.POST)
-            backgroundWorker.execute(setId)
-            val highscoresResponse = backgroundWorker.get().toString()
-
-            val gson = Gson()
-            val highscoresListType = object : TypeToken<List<Highscore>>() {}.type
-            val mappedHighscoresResponse: List<Highscore> = gson.fromJson(highscoresResponse, highscoresListType)
-            val mappedHighscoresSorted = mappedHighscoresResponse.sortedByDescending { it.score.toInt() }
-
-            var isBright = true
-            for ((place, mappedHighscore) in mappedHighscoresSorted.withIndex()) {
-                val placeString = (place + 1).toString()
-                val recordType = if (isBright) HighscoreRecordType.BRIGHT else HighscoreRecordType.DARK
-                val highscore = Highscore(recordType, placeString, mappedHighscore.nick, mappedHighscore.score, setId)
-                highscoresList.add(highscore)
-                isBright = !isBright
-            }
-
-            return highscoresList
-        }
-
-        fun newHighscore(context: Context, nick: String, score: String, user_id: String, set_id: String): Boolean {
-            var isSuccess = false
-
-            val backgroundWorker = NewHighscoreBackgroundWorker(context, new_highscore_url, RequestMethods.POST)
-            backgroundWorker.execute(nick, score, user_id, set_id)
-
-            val result = backgroundWorker.get().toString()
-            when (result){
-                ResultStatus.SUCCESS.name -> isSuccess = true
-                ResultStatus.FAIL.name -> isSuccess = false
-            }
-
-            return isSuccess
-        }
+       // fun newHighscore(context: Context, nick: String, score: String, user_id: String, set_id: String): Boolean {
+       //     var isSuccess = false
+//
+       //     val backgroundWorker = NewHighscoreBackgroundWorker(context, new_highscore_url, RequestMethods.POST)
+       //     backgroundWorker.execute(nick, score, user_id, set_id)
+//
+       //     val result = backgroundWorker.get().toString()
+       //     when (result){
+       //         ResultStatus.SUCCESS.name -> isSuccess = true
+       //         else -> isSuccess = false
+       //     }
+//
+       //     return isSuccess
+       // }
     }
 }
