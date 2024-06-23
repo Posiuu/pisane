@@ -5,7 +5,7 @@
     android:id="@+id/lGameConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pisane.activity.LoginActivity">
+    tools:context="com.pisane.pisane.activity.LoginActivity">
 
 
     <androidx.constraintlayout.widget.Guideline
