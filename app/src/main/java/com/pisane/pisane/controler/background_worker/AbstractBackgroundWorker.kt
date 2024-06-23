@@ -1,9 +1,9 @@
-package com.example.pisane.controler.background_worker
+package com.pisane.pisane.controler.background_worker
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
-import com.example.pisane.controler.background_worker.common.RequestMethods
+import com.pisane.pisane.controler.background_worker.common.RequestMethods
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
