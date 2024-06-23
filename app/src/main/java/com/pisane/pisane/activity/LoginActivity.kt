@@ -2,14 +2,20 @@ package com.pisane.pisane.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.pisane.pisane.consts.login_url
 import com.pisane.pisane.controler.shared_preferences.PREF_USERNAME
 import com.pisane.pisane.controler.shared_preferences.SharedPreferencesManager
 import com.pisane.pisane.databinding.ActivityLoginBinding
-import com.pisane.pisane.controler.login.LoginManager
 import com.pisane.pisane.controler.shared_preferences.PREF_USER_ID
+import com.pisane.pisane.enums.ResultStatus
 import com.pisane.pisane.model.User
+import com.vishnusivadas.advanced_httpurlconnection.PutData
 
 class LoginActivity : AppCompatActivity() {
 
@@ -39,36 +45,52 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(username: String, password: String) {
-        val loggedInUser = LoginManager.login(this, username, password)
+    private fun login(username: String?, password: String?) {
+        Handler(Looper.getMainLooper()).post {
+            if (username.isNullOrEmpty() || password.isNullOrEmpty()){
+                Toast.makeText(this, "Login i hasło wymagane", Toast.LENGTH_LONG).show()
+                return@post
+            }
+            val putData = PutData(
+                login_url,
+                "POST",
+                arrayOf("username", "password"),
+                arrayOf(username, password)
+            )
+            if (putData.startPut() && putData.onComplete()) {
+                val result = putData.result
+                val user: User? = Gson().fromJson(result, object : TypeToken<User>() {}.type)
 
-        if (loggedInUser != null){
-            loginSuccessful(loggedInUser)
+                if (user != null){
+                    loginSuccessful(user)
+                }
+                else {
+                    when (result){
+                        ResultStatus.FAIL_MISSING_VALUES.name -> Toast.makeText(this, "Login i hasło wymagane", Toast.LENGTH_LONG).show()
+                        ResultStatus.FAIL_DATABASE_CONNECTION.name -> Toast.makeText(this, "Nie udało się połączyć z serwerem. Włącz wifi lub transfer danych i spróbuj ponownie", Toast.LENGTH_LONG).show()
+                        ResultStatus.FAIL_OTHER.name -> Toast.makeText(this, "Niepoprawne dane logowania", Toast.LENGTH_LONG).show()
+                        else -> Toast.makeText(this, "Błąd podczas logowania, spróbuj ponownie", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
         }
-        else {
-            loginFailed()
-        }
+    }
+
+    private fun loginSuccessful(user: User) {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        sharedPreferencesManager.putObject(user.id, PREF_USER_ID)
+        sharedPreferencesManager.putObject(user.username, PREF_USERNAME)
+
+        emptyInputEditText()
+        val accountsIntent = Intent(activity, MainMenuActivity::class.java)
+        startActivity(accountsIntent)
+        Toast.makeText(this, "Zalogowano poprawnie.", Toast.LENGTH_LONG).show()
     }
 
     private fun register() {
         val accountsIntent = Intent(activity, RegisterActivity::class.java)
         emptyInputEditText()
         startActivity(accountsIntent)
-    }
-
-    private fun loginSuccessful(user: User) {
-        val sharedPreferencesManager = SharedPreferencesManager(this)
-        sharedPreferencesManager.putObject(user.id, PREF_USER_ID)
-        sharedPreferencesManager.putObject(user.name, PREF_USERNAME)
-
-        val accountsIntent = Intent(activity, MainMenuActivity::class.java)
-        emptyInputEditText()
-        startActivity(accountsIntent)
-        Toast.makeText(this, "Zalogowano poprawnie.", Toast.LENGTH_LONG).show()
-    }
-
-    private fun loginFailed() {
-        Toast.makeText(this, "Nieprawidłowy login lub hasło.", Toast.LENGTH_LONG).show()
     }
 
     private fun emptyInputEditText() {

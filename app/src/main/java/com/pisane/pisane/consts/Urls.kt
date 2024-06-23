@@ -2,11 +2,14 @@ package com.pisane.pisane.consts
 
 const val base_url = "https://pisane.krolp.pl"
 
-const val passwordhash_php = "passwordhash.php"
-const val passwordhash_url = "$base_url/$passwordhash_php"
-
 const val signup_php = "signup.php"
 const val signup_url = "$base_url/$signup_php"
+
+const val login_php = "login.php"
+const val login_url = "$base_url/$login_php"
+
+const val passwordhash_php = "passwordhash.php"
+const val passwordhash_url = "$base_url/$passwordhash_php"
 
 const val highscores_php = "highscores.php"
 const val highscores_url = "$base_url/$highscores_php"
