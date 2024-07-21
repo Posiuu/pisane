@@ -30,10 +30,8 @@ class GameHelper {
                 val cardsSet = CardSetsDAO.getCardsSet(setId)
                     ?: throw Error("Error: SetId not in saved games sets.")
 
-                val cardOrders = mutableListOf<List<Card>>()
-                cardsSet.forEach { cardSetComponent ->
-                    val cardsList = cardSetComponentToCardsList(cardSetComponent)
-                    cardOrders.add(cardsList)
+                val cardOrders = cardsSet.map { cardSetComponent ->
+                    cardSetComponentToCardsList(cardSetComponent)
                 }
 
                 newGame = Game(cardOrders)
@@ -49,17 +47,12 @@ class GameHelper {
             return newGame
         }
 
-        fun cardSetComponentToCardsList(cardsSetComponent: CardSetComponent): List<Card> {
-            val cardsList = mutableListOf<Card>()
+        private fun cardSetComponentToCardsList(cardsSetComponent: CardSetComponent): List<Card> {
+            val cardsList: List<Card>
 
-            val cardsOrderStr = cardsSetComponent.cards_order
-            val cardsStrList = cardsOrderStr.split(";")
-            cardsStrList.forEach { cardStr ->
-                val cardPropertiesStrings = cardStr.split(",")
-                val cardFigure = cardPropertiesStrings[0].toInt()
-                val cardColor = cardPropertiesStrings[1].toInt()
-                val card = cards.filter {card -> card.figure == cardFigure && card.color == cardColor}.firstOrNull()
-                cardsList.add(card!!)
+            val cardIdsList = cardsSetComponent.cards_order.split(";")
+            cardsList = cardIdsList.map { cardId ->
+                cards[cardId.toInt()]
             }
 
             return cardsList
