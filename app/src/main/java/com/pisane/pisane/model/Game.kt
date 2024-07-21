@@ -1,11 +1,10 @@
-package com.pisane.pisane.controler.game
+package com.pisane.pisane.model
 
 import android.content.Context
-import com.pisane.pisane.controler.games_table.*
-import com.pisane.pisane.controler.hand.*
-import com.pisane.pisane.controler.daos.HighscoreDAO
-import com.pisane.pisane.controler.shared_preferences.*
-import com.pisane.pisane.model.Card
+import com.pisane.pisane.shared_preferences.PREF_USERNAME
+import com.pisane.pisane.shared_preferences.PREF_USER_ID
+import com.pisane.pisane.shared_preferences.SharedPreferencesHelper
+import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 
 class Game(private var cardOrders: List<List<Card>>) {
     lateinit var currentHand: Hand

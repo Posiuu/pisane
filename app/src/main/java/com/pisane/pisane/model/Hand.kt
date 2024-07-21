@@ -1,7 +1,6 @@
-package com.pisane.pisane.controler.hand
+package com.pisane.pisane.model
 
-import com.pisane.pisane.controler.cards_sets_recognizer.*
-import com.pisane.pisane.model.Card
+import com.pisane.pisane.helpers.CardsSetsRecognizer
 
 class Hand(private var availableCards: List<Card>) {
     lateinit var currentCards: MutableList<Card>

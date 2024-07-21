@@ -1,4 +1,4 @@
-package com.pisane.pisane.controler.games_table
+package com.pisane.pisane.model
 
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE

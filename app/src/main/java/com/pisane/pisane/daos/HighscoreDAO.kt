@@ -1,4 +1,4 @@
-package com.pisane.pisane.controler.daos
+package com.pisane.pisane.daos
 
 import android.content.Context
 import com.pisane.pisane.data.highscoresEmptyList

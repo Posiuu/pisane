@@ -4,10 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pisane.pisane.consts.GAME_SET_ID
-import com.pisane.pisane.controler.daos.CardSetsDAO
-import com.pisane.pisane.controler.shared_preferences.PREF_USER_ID
-import com.pisane.pisane.controler.shared_preferences.SharedPreferencesHelper
-import com.pisane.pisane.controler.shared_preferences.SharedPreferencesManager
+import com.pisane.pisane.daos.CardSetsDAO
+import com.pisane.pisane.shared_preferences.PREF_USER_ID
+import com.pisane.pisane.shared_preferences.SharedPreferencesHelper
+import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 import com.pisane.pisane.databinding.ActivityChooseCardSetBinding
 
 class ChooseCardSetActivity : AppCompatActivity() {

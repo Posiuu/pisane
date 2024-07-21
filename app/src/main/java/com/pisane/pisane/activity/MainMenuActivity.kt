@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.pisane.pisane.consts.GAME_SET_ID
 import com.pisane.pisane.consts.RANDOM_CARDS_ID
-import com.pisane.pisane.controler.shared_preferences.PREF_USERNAME
-import com.pisane.pisane.controler.shared_preferences.SharedPreferencesManager
+import com.pisane.pisane.shared_preferences.PREF_USERNAME
+import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 import com.pisane.pisane.databinding.ActivityMainMenuBinding
 
 

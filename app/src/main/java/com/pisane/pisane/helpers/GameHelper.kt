@@ -1,18 +1,19 @@
-package com.pisane.pisane.controler.game
+package com.pisane.pisane.helpers
 
 import android.content.Context
 import com.pisane.pisane.consts.RANDOM_CARDS_ID
-import com.pisane.pisane.controler.daos.CardSetsDAO
-import com.pisane.pisane.controler.shared_preferences.PREF_USER_ID
-import com.pisane.pisane.controler.shared_preferences.SharedPreferencesHelper.Companion.gamePrefsList
-import com.pisane.pisane.controler.shared_preferences.SharedPreferencesHelper.Companion.getPrefStrBySetId
-import com.pisane.pisane.controler.shared_preferences.SharedPreferencesManager
+import com.pisane.pisane.daos.CardSetsDAO
+import com.pisane.pisane.shared_preferences.PREF_USER_ID
+import com.pisane.pisane.shared_preferences.SharedPreferencesHelper.Companion.gamePrefsList
+import com.pisane.pisane.shared_preferences.SharedPreferencesHelper.Companion.getPrefStrBySetId
+import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 import com.pisane.pisane.data.cards
 import com.pisane.pisane.data.gamesCount
 import com.pisane.pisane.model.Card
 import com.pisane.pisane.model.CardSetComponent
+import com.pisane.pisane.model.Game
 
-class GameManager {
+class GameHelper {
     companion object {
         fun startNewGame(context: Context, setId: Int): Game {
             val newGame: Game

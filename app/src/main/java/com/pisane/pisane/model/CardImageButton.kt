@@ -1,4 +1,4 @@
-package com.pisane.pisane.controler.game
+package com.pisane.pisane.model
 
 import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -6,7 +6,6 @@ import com.pisane.pisane.consts.DOWN_BOT_TO_BOT
 import com.pisane.pisane.consts.DOWN_TOP_TO_TOP
 import com.pisane.pisane.consts.UP_BOT_TO_BOT
 import com.pisane.pisane.consts.UP_TOP_TO_TOP
-import com.pisane.pisane.model.Card
 
 class CardImageButton(private val imageButton: ImageButton, private val index: Int, private val guidelines: HashMap<String, Int>) {
     var isSelected: Boolean = false

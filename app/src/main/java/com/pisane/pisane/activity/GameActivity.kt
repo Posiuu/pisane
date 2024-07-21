@@ -8,12 +8,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.pisane.pisane.adapter.*
 import com.pisane.pisane.anims.MyBounceInterpolator
-import com.pisane.pisane.controler.game.*
-import com.pisane.pisane.controler.shared_preferences.*
 import com.pisane.pisane.databinding.ActivityGameBinding
 import com.pisane.pisane.R.anim.bounce
 import com.pisane.pisane.R.string.*
 import com.pisane.pisane.consts.*
+import com.pisane.pisane.helpers.CardImageButtonHelper
+import com.pisane.pisane.model.Game
+import com.pisane.pisane.helpers.GameHelper
+import com.pisane.pisane.shared_preferences.SharedPreferencesHelper
 import kotlin.properties.Delegates
 
 class GameActivity : AppCompatActivity() {
@@ -21,7 +23,7 @@ class GameActivity : AppCompatActivity() {
     private val activity = this@GameActivity
     private lateinit var binding: ActivityGameBinding
 
-    private lateinit var cardImageButtonManager: CardImageButtonManager
+    private lateinit var cardImageButtonHelper: CardImageButtonHelper
 
     private val selectedCardsIndices: MutableList<Int> = mutableListOf()
 
@@ -35,7 +37,7 @@ class GameActivity : AppCompatActivity() {
 
         setId = intent.getIntExtra(GAME_SET_ID, -1)
 
-        cardImageButtonManager = getCardButtonManager()
+        cardImageButtonHelper = getCardButtonManager()
 
         loadGameOrStartNewOne()
 
@@ -78,8 +80,8 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun getCardButtonManager(): CardImageButtonManager {
-        val cardImageButtonManager: CardImageButtonManager
+    private fun getCardButtonManager(): CardImageButtonHelper {
+        val cardImageButtonHelper: CardImageButtonHelper
 
         val imageButtons = listOf(
                 binding.gCard1ImageButton,
@@ -96,14 +98,14 @@ class GameActivity : AppCompatActivity() {
                 UP_BOT_TO_BOT to binding.gTop94Guideline.id
         )
 
-        cardImageButtonManager = CardImageButtonManager(imageButtons, cardsGuidelines)
+        cardImageButtonHelper = CardImageButtonHelper(imageButtons, cardsGuidelines)
 
-        return cardImageButtonManager
+        return cardImageButtonHelper
     }
 
     private fun cardImageButtonHandling(index: Int) {
-        cardImageButtonManager.clickCard(index)
-        val isCardSelected = cardImageButtonManager.isCardSelected(index)
+        cardImageButtonHelper.clickCard(index)
+        val isCardSelected = cardImageButtonHelper.isCardSelected(index)
 
         if (isCardSelected && !selectedCardsIndices.contains(index)) {
             selectedCardsIndices.add(index)
@@ -122,7 +124,7 @@ class GameActivity : AppCompatActivity() {
 
         val hand = game.currentHand
         val isDrawSuccessful = hand.draw(selectedCardsIndices)
-        cardImageButtonManager.updateCardImageButtons(game.currentHand.currentCards)
+        cardImageButtonHelper.updateCardImageButtons(game.currentHand.currentCards)
         selectedCardsIndices.clear()
 
         if (!isDrawSuccessful) {
@@ -144,7 +146,7 @@ class GameActivity : AppCompatActivity() {
             return
         }
 
-        cardImageButtonManager.updateCardImageButtons(game.currentHand.currentCards)
+        cardImageButtonHelper.updateCardImageButtons(game.currentHand.currentCards)
         selectedCardsIndices.clear()
         binding.gResultsRecyclerView.adapter?.notifyDataSetChanged()
     }
@@ -154,7 +156,7 @@ class GameActivity : AppCompatActivity() {
 
         if (loadedGame != null){
             game = loadedGame
-            cardImageButtonManager.updateCardImageButtons(game.currentHand.currentCards)
+            cardImageButtonHelper.updateCardImageButtons(game.currentHand.currentCards)
             selectedCardsIndices.clear()
             if (setId == RANDOM_CARDS_ID){
                 showGameResetAlert()
@@ -181,10 +183,10 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun startNewGame() {
-        game = GameManager.startNewGame(this, setId)
+        game = GameHelper.startNewGame(this, setId)
         game.startHand()
 
-        cardImageButtonManager.updateCardImageButtons(game.currentHand.currentCards)
+        cardImageButtonHelper.updateCardImageButtons(game.currentHand.currentCards)
         selectedCardsIndices.clear()
         binding.gResultsRecyclerView.adapter = GamesTableRecyclerViewAdapter(this,
                 game.gamesTable.data, this::chooseGameButtonHandling)

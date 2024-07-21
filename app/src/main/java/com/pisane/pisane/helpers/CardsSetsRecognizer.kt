@@ -1,4 +1,4 @@
-package com.pisane.pisane.controler.cards_sets_recognizer
+package com.pisane.pisane.helpers
 
 import com.pisane.pisane.model.Card
 import com.pisane.pisane.model.CardColor

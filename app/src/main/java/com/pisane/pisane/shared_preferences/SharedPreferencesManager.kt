@@ -1,4 +1,4 @@
-package com.pisane.pisane.controler.shared_preferences
+package com.pisane.pisane.shared_preferences
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -20,7 +20,8 @@ const val PREF_GAME9 = "PREF_GAME9"
 const val PREF_GAME10 = "PREF_GAME10"
 
 class SharedPreferencesManager (context: Context) {
-    val sharedPreferences: SharedPreferences = context.getSharedPreferences(PREF_FILE_NAME,
+    val sharedPreferences: SharedPreferences = context.getSharedPreferences(
+        PREF_FILE_NAME,
         Context.MODE_PRIVATE)
 
     fun <T> putObject(objectToPut: T, key: String) {

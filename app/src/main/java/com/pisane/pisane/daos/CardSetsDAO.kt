@@ -1,4 +1,4 @@
-package com.pisane.pisane.controler.daos
+package com.pisane.pisane.daos
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

@@ -1,4 +1,4 @@
-package com.pisane.pisane.controler
+package com.pisane.pisane.validation
 
 import android.content.Context
 import android.widget.EditText

@@ -9,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.pisane.pisane.consts.login_url
-import com.pisane.pisane.controler.shared_preferences.PREF_USERNAME
-import com.pisane.pisane.controler.shared_preferences.SharedPreferencesManager
+import com.pisane.pisane.shared_preferences.PREF_USERNAME
+import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 import com.pisane.pisane.databinding.ActivityLoginBinding
-import com.pisane.pisane.controler.shared_preferences.PREF_USER_ID
+import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.enums.ResultStatus
 import com.pisane.pisane.model.User
 import com.vishnusivadas.advanced_httpurlconnection.PutData

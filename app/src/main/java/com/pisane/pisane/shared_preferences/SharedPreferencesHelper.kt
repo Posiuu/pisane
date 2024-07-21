@@ -1,8 +1,8 @@
-package com.pisane.pisane.controler.shared_preferences
+package com.pisane.pisane.shared_preferences
 
 import android.content.Context
 import com.pisane.pisane.consts.RANDOM_CARDS_ID
-import com.pisane.pisane.controler.game.Game
+import com.pisane.pisane.model.Game
 
 class SharedPreferencesHelper {
     companion object {
