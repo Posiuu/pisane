@@ -17,8 +17,8 @@ const val is_set_played_url = "$base_url/$is_set_played_php"
 const val new_set_played_php = "newSetPlayed.php"
 const val new_set_played_url = "$base_url/$new_set_played_php"
 
-const val highscores_php = "highscores.php"
-const val highscores_url = "$base_url/$highscores_php"
+const val get_highscores_php = "getHighscores.php"
+const val get_highscores_url = "$base_url/$get_highscores_php"
 
-const val new_highscore_php = "newhighscore.php"
+const val new_highscore_php = "newHighscore.php"
 const val new_highscore_url = "$base_url/$new_highscore_php"

@@ -1,7 +1,7 @@
 package com.pisane.pisane.model
 
 import android.content.Context
-import com.pisane.pisane.shared_preferences.PREF_USERNAME
+import com.pisane.pisane.daos.HighscoreDAO
 import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.shared_preferences.SharedPreferencesHelper
 import com.pisane.pisane.shared_preferences.SharedPreferencesManager
@@ -48,12 +48,11 @@ class Game(private var cardOrders: List<List<Card>>) {
 
     fun saveHighscore(context: Context, setId: Int) {
         val sharedPreferencesManager = SharedPreferencesManager(context)
-        val nick = sharedPreferencesManager.getObject<String>(PREF_USERNAME)
-        val user_id = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
         val score = gamesTable.tableTotalScore
 
-        //if (nick != null && score != 0) {
-        //    HighscoreDAO.newHighscore(context, nick, score.toString(), user_id.toString(), setId.toString())
-        //}
+        if (score != 0) {
+            HighscoreDAO.newHighscore(score, userId!!, setId)
+        }
     }
 }

@@ -1,54 +1,60 @@
 package com.pisane.pisane.daos
 
-import android.content.Context
-import com.pisane.pisane.data.highscoresEmptyList
-import com.pisane.pisane.model.Highscore
-import com.pisane.pisane.model.HighscoreRecordType
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.pisane.pisane.consts.highscores_url
+import com.pisane.pisane.consts.get_highscores_url
 import com.pisane.pisane.consts.new_highscore_url
+import com.pisane.pisane.data.highscoresEmptyList
+import com.pisane.pisane.dtos.HighscoreDTO
 import com.pisane.pisane.enums.ResultStatus
+import com.pisane.pisane.model.Highscore
+import com.pisane.pisane.model.HighscoreRecordType
+import com.vishnusivadas.advanced_httpurlconnection.PutData
 
 class HighscoreDAO {
     companion object {
-       // fun getHighscores(context: Context, setId: String = "0"): MutableList<Highscore> {
-       //     val highscoresList = highscoresEmptyList.map{it.copy()} as MutableList
-//
-       //     val backgroundWorker = GetHighscoresBackgroundWorker(context, highscores_url, RequestMethods.POST)
-       //     backgroundWorker.execute(setId)
-       //     val highscoresResponse = backgroundWorker.get().toString()
-//
-       //     val gson = Gson()
-       //     val highscoresListType = object : TypeToken<List<Highscore>>() {}.type
-       //     val mappedHighscoresResponse: List<Highscore> = gson.fromJson(highscoresResponse, highscoresListType)
-       //     val mappedHighscoresSorted = mappedHighscoresResponse.sortedByDescending { it.score.toInt() }
-//
-       //     var isBright = true
-       //     for ((place, mappedHighscore) in mappedHighscoresSorted.withIndex()) {
-       //         val placeString = (place + 1).toString()
-       //         val recordType = if (isBright) HighscoreRecordType.BRIGHT else HighscoreRecordType.DARK
-       //         val highscore = Highscore(recordType, placeString, mappedHighscore.nick, mappedHighscore.score, setId)
-       //         highscoresList.add(highscore)
-       //         isBright = !isBright
-       //     }
-//
-       //     return highscoresList
-       // }
+        fun getHighscores(setId: Int = 0): MutableList<Highscore> {
+            val highscoresList = highscoresEmptyList.map{it.copy()} as MutableList
 
-       // fun newHighscore(context: Context, nick: String, score: String, user_id: String, set_id: String): Boolean {
-       //     var isSuccess = false
-//
-       //     val backgroundWorker = NewHighscoreBackgroundWorker(context, new_highscore_url, RequestMethods.POST)
-       //     backgroundWorker.execute(nick, score, user_id, set_id)
-//
-       //     val result = backgroundWorker.get().toString()
-       //     when (result){
-       //         ResultStatus.SUCCESS.name -> isSuccess = true
-       //         else -> isSuccess = false
-       //     }
-//
-       //     return isSuccess
-       // }
+            val putData = PutData(
+                get_highscores_url,
+                "POST",
+                arrayOf("setId"),
+                arrayOf(setId.toString())
+            )
+            if (putData.startPut() && putData.onComplete()) {
+                val result = putData.result
+                val mappedHighscoresResponse: List<HighscoreDTO>? = Gson().fromJson(result, object : TypeToken<List<HighscoreDTO>>() {}.type)
+
+                if (mappedHighscoresResponse != null) {
+                    var isBright = true
+                    for ((place, highscoreDTO) in mappedHighscoresResponse.withIndex()) {
+                        val recordType = if (isBright) HighscoreRecordType.BRIGHT else HighscoreRecordType.DARK
+                        val placeString = (place + 1).toString()
+                        val highscore = Highscore(recordType, placeString, highscoreDTO.username, highscoreDTO.score.toString(), setId.toString())
+                        highscoresList.add(highscore)
+                        isBright = !isBright
+                    }
+                }
+            }
+
+            return highscoresList
+        }
+
+        fun newHighscore(score: Int, userId: Int, setId: Int): Boolean {
+            val putData = PutData(
+                new_highscore_url,
+                "POST",
+                arrayOf("score", "userId", "setId"),
+                arrayOf(score.toString(), userId.toString(), setId.toString())
+            )
+            if (putData.startPut() && putData.onComplete()) {
+                if (putData.result == ResultStatus.SUCCESS.name){
+                    return true
+                }
+            }
+
+            return false
+        }
     }
 }
