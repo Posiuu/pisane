@@ -2,8 +2,6 @@ package com.pisane.pisane.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -46,31 +44,29 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(username: String?, password: String?) {
-        Handler(Looper.getMainLooper()).post {
-            if (username.isNullOrEmpty() || password.isNullOrEmpty()){
-                Toast.makeText(this, "Login i hasło wymagane", Toast.LENGTH_LONG).show()
-                return@post
-            }
-            val putData = PutData(
-                login_url,
-                "POST",
-                arrayOf("username", "password"),
-                arrayOf(username, password)
-            )
-            if (putData.startPut() && putData.onComplete()) {
-                val result = putData.result
-                val user: User? = Gson().fromJson(result, object : TypeToken<User>() {}.type)
+        if (username.isNullOrEmpty() || password.isNullOrEmpty()){
+            Toast.makeText(this, "Login i hasło wymagane", Toast.LENGTH_LONG).show()
+            return
+        }
+        val putData = PutData(
+            login_url,
+            "POST",
+            arrayOf("username", "password"),
+            arrayOf(username, password)
+        )
+        if (putData.startPut() && putData.onComplete()) {
+            val result = putData.result
+            val user: User? = Gson().fromJson(result, object : TypeToken<User>() {}.type)
 
-                if (user != null){
-                    loginSuccessful(user)
-                }
-                else {
-                    when (result){
-                        ResultStatus.FAIL_MISSING_VALUES.name -> Toast.makeText(this, "Login i hasło wymagane", Toast.LENGTH_LONG).show()
-                        ResultStatus.FAIL_DATABASE_CONNECTION.name -> Toast.makeText(this, "Nie udało się połączyć z serwerem. Włącz wifi lub transfer danych i spróbuj ponownie", Toast.LENGTH_LONG).show()
-                        ResultStatus.FAIL_OTHER.name -> Toast.makeText(this, "Niepoprawne dane logowania", Toast.LENGTH_LONG).show()
-                        else -> Toast.makeText(this, "Błąd podczas logowania, spróbuj ponownie", Toast.LENGTH_LONG).show()
-                    }
+            if (user != null){
+                loginSuccessful(user)
+            }
+            else {
+                when (result){
+                    ResultStatus.FAIL_MISSING_VALUES.name -> Toast.makeText(this, "Login i hasło wymagane", Toast.LENGTH_LONG).show()
+                    ResultStatus.FAIL_DATABASE_CONNECTION.name -> Toast.makeText(this, "Nie udało się połączyć z serwerem. Włącz wifi lub transfer danych i spróbuj ponownie", Toast.LENGTH_LONG).show()
+                    ResultStatus.FAIL_OTHER.name -> Toast.makeText(this, "Niepoprawne dane logowania", Toast.LENGTH_LONG).show()
+                    else -> Toast.makeText(this, "Błąd podczas logowania, spróbuj ponownie", Toast.LENGTH_LONG).show()
                 }
             }
         }
