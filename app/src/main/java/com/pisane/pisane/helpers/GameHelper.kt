@@ -40,7 +40,7 @@ class GameHelper {
 
                 val sharedPreferencesManager = SharedPreferencesManager(context)
                 val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
-                //CardSetsDAO.newSetPlayed(context, userId.toString(), setId.toString())
+                CardSetsDAO.newSetPlayed(setId, userId!!)
             }
             else {
                 throw Error("Error: SetId not in saved games sets.")
