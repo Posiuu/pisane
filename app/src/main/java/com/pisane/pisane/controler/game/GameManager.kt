@@ -3,7 +3,6 @@ package com.pisane.pisane.controler.game
 import android.content.Context
 import com.pisane.pisane.consts.RANDOM_CARDS_ID
 import com.pisane.pisane.controler.daos.CardSetsDAO
-import com.pisane.pisane.controler.card_sets.CardSetsManager
 import com.pisane.pisane.controler.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.controler.shared_preferences.SharedPreferencesHelper.Companion.gamePrefsList
 import com.pisane.pisane.controler.shared_preferences.SharedPreferencesHelper.Companion.getPrefStrBySetId
@@ -27,7 +26,8 @@ class GameManager {
                 newGame = Game(cardOrders)
             }
             else if (getPrefStrBySetId(setId) in gamePrefsList) {
-                val cardsSet = CardSetsManager.getCardSetBySetId(context, setId)
+                val cardsSet = CardSetsDAO.getCardsSet(setId)
+                    ?: throw Error("Error: SetId not in saved games sets.")
 
                 val cardOrders = mutableListOf<List<Card>>()
                 cardsSet.forEach { cardSetComponent ->
@@ -51,7 +51,7 @@ class GameManager {
         fun cardSetComponentToCardsList(cardsSetComponent: CardSetComponent): List<Card> {
             val cardsList = mutableListOf<Card>()
 
-            val cardsOrderStr = cardsSetComponent.cardsOrder
+            val cardsOrderStr = cardsSetComponent.cards_order
             val cardsStrList = cardsOrderStr.split(";")
             cardsStrList.forEach { cardStr ->
                 val cardPropertiesStrings = cardStr.split(",")
