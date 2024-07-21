@@ -22,3 +22,9 @@ const val get_highscores_url = "$base_url/$get_highscores_php"
 
 const val new_highscore_php = "newHighscore.php"
 const val new_highscore_url = "$base_url/$new_highscore_php"
+
+const val new_tokens_activation_php = "newTokenActivation.php"
+const val new_tokens_activation_url = "$base_url/$new_tokens_activation_php"
+
+const val get_last_tokens_activation_php = "getLastTokensActivation.php"
+const val get_last_tokens_activation_url = "$base_url/$get_last_tokens_activation_php"

@@ -206,8 +206,10 @@
             android:scaleType="fitXY"
             app:layout_constraintBottom_toTopOf="@id/mmTop88Guideline"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mmTop12Guideline"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/menu_panel" />
 
         <Button
@@ -292,8 +294,23 @@
             app:layout_constraintStart_toStartOf="@+id/mmStart145Guideline"
             app:layout_constraintTop_toTopOf="@+id/mmChipCountImageView" />
 
+        <TextView
+            android:id="@+id/mmCollectChipsTimer"
+            android:elevation="4dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mmShopImageButton"
+            app:layout_constraintStart_toStartOf="@+id/mmStart39Guideline"
+            app:layout_constraintTop_toTopOf="@+id/mmTop88Guideline" />
+
         <Button
             android:id="@+id/mmCollectFreeChipsButton"
+            android:elevation="2dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
@@ -306,7 +323,6 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="@string/collectFreeChips"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/mmShopImageButton"
             app:layout_constraintStart_toStartOf="@+id/mmStart39Guideline"
@@ -328,4 +344,5 @@
             app:srcCompat="@drawable/shop_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
