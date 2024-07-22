@@ -28,3 +28,9 @@ const val new_tokens_activation_url = "$base_url/$new_tokens_activation_php"
 
 const val get_last_tokens_activation_php = "getLastTokensActivation.php"
 const val get_last_tokens_activation_url = "$base_url/$get_last_tokens_activation_php"
+
+const val update_tokens_php = "updateTokens.php"
+const val update_tokens_url = "$base_url/$update_tokens_php"
+
+const val get_tokens_count_php = "getTokensCount.php"
+const val get_tokens_count_url = "$base_url/$get_tokens_count_php"

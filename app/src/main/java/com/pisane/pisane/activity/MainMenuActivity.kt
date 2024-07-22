@@ -28,6 +28,7 @@ class MainMenuActivity : AppCompatActivity() {
 
         setUsername()
         setCollectTokensTimer()
+        setChipsCount()
 
         binding.mmSettingsImageButton.setOnClickListener {
             settingsButtonHandling()
@@ -94,6 +95,8 @@ class MainMenuActivity : AppCompatActivity() {
         val secondsDiff = DatetimeHelper.secondsDiff(activationDatetimeStr!!)
 
         if (secondsDiff > secondsBetweenActivation) {
+            val chipsCount = TokensDAO.updateUserTokens(10000, userId)
+            binding.mmChipCountTextView.text = chipsCount.toString()
             TokensDAO.newTokenActivation(userId)
             Toast.makeText(
                 this, "Otrzymujesz 10 000 żetonów",
@@ -143,6 +146,14 @@ class MainMenuActivity : AppCompatActivity() {
             val millisecondsToCount = (secondsBetweenActivation - secondsDiff) * 1000
             startTimer(millisecondsToCount)
         }
+    }
+
+    private fun setChipsCount() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+
+        val chipsCount = TokensDAO.getTokensCount(userId!!)
+        binding.mmChipCountTextView.text = chipsCount.toString()
     }
 
     private fun startTimer(millisecondsToCount: Long) {
