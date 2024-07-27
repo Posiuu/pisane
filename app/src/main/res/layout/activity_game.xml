@@ -232,7 +232,7 @@
         app:layout_constraintEnd_toStartOf="@+id/gStart98Guideline"
         app:layout_constraintStart_toEndOf="@+id/gStart75Guideline"
         app:layout_constraintTop_toTopOf="@+id/gTop65Guideline"
-        app:srcCompat="@drawable/deck_image" />
+        app:srcCompat="@drawable/deck" />
 
     <ImageButton
         android:id="@+id/gCard1ImageButton"

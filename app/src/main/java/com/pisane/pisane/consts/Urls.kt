@@ -34,3 +34,10 @@ const val update_tokens_url = "$base_url/$update_tokens_php"
 
 const val get_tokens_count_php = "getTokensCount.php"
 const val get_tokens_count_url = "$base_url/$get_tokens_count_php"
+
+const val get_shop_item_purchases_php = "getShopItemPurchases.php"
+const val get_shop_item_purchases_url = "$base_url/$get_shop_item_purchases_php"
+
+
+const val new_shop_item_selected_php = "newShopItemSelected.php"
+const val new_shop_item_selected_url = "$base_url/$new_shop_item_selected_php"

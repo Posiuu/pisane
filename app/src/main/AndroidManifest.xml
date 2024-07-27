@@ -49,6 +49,10 @@
             android:name="com.pisane.pisane.activity.ChooseHighscoresActivity"
             android:screenOrientation="portrait"
             android:exported="true" />
+        <activity
+            android:name="com.pisane.pisane.activity.ShopActivity"
+            android:screenOrientation="portrait"
+            android:exported="true" />
     </application>
 
 </manifest>

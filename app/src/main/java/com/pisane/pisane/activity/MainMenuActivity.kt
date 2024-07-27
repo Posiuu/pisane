@@ -114,10 +114,8 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun shopButtonHandling() {
-        Toast.makeText(
-                this, "Sklep będzie wkrótce dostępny",
-                Toast.LENGTH_SHORT
-        ).show()
+        val intent = Intent(this, ShopActivity::class.java)
+        startActivity(intent)
     }
 
     private fun setUsername() {
