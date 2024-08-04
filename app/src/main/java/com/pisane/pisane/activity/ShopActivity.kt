@@ -59,6 +59,9 @@ class ShopActivity : AppCompatActivity() {
         binding.shopDeck3Button.setOnClickListener {
             setButtonHandling(ShopItems.CARDS3, binding.shopDeck3Text, binding.shopDeck3Tick)
         }
+        binding.shopBackImageButton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setShopItems() {
