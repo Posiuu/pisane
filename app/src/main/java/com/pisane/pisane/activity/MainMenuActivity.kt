@@ -7,7 +7,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.pisane.pisane.consts.GAME_SET_ID
 import com.pisane.pisane.consts.RANDOM_CARDS_ID
+import com.pisane.pisane.daos.ExperienceDAO
 import com.pisane.pisane.daos.TokensDAO
+import com.pisane.pisane.data.LevelExperience
 import com.pisane.pisane.databinding.ActivityMainMenuBinding
 import com.pisane.pisane.helpers.DatetimeHelper
 import com.pisane.pisane.shared_preferences.PREF_USERNAME
@@ -19,6 +21,7 @@ class MainMenuActivity : AppCompatActivity() {
     private val activity = this@MainMenuActivity
     private lateinit var binding: ActivityMainMenuBinding
 
+    private var userId: Int? = null
     private val secondsBetweenActivation: Long = 10 * 60 * 60
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,10 @@ class MainMenuActivity : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+
+        setProgressBar()
         setUsername()
         setCollectTokensTimer()
         setChipsCount()
@@ -57,6 +64,12 @@ class MainMenuActivity : AppCompatActivity() {
         binding.mmShopImageButton.setOnClickListener {
             shopButtonHandling()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setProgressBar()
+        setChipsCount()
     }
 
     private fun settingsButtonHandling() {
@@ -116,6 +129,17 @@ class MainMenuActivity : AppCompatActivity() {
     private fun shopButtonHandling() {
         val intent = Intent(this, ShopActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun setProgressBar() {
+        val userExperience = ExperienceDAO.getUserExperience(userId!!)
+        val userLevel = LevelExperience.entries.first{ userExperience < it.value }
+        val previousLevelValue = if (userLevel.key != 1) LevelExperience[userLevel.key - 1] ?: 0 else 0
+        val levelProgress = (userExperience - previousLevelValue).toDouble() / (userLevel.value - previousLevelValue).toDouble()
+        val levelProgressPercent = (levelProgress * 100).toInt()
+
+        binding.mmProgressBarLevelTextView.text = "Poziom ${userLevel.key}"
+        binding.mmLevelProgressBar.progress = levelProgressPercent
     }
 
     private fun setUsername() {

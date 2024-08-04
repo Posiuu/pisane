@@ -12,6 +12,7 @@ import com.pisane.pisane.databinding.ActivityGameBinding
 import com.pisane.pisane.R.anim.bounce
 import com.pisane.pisane.R.string.*
 import com.pisane.pisane.consts.*
+import com.pisane.pisane.daos.ExperienceDAO
 import com.pisane.pisane.daos.ShopDAO
 import com.pisane.pisane.data.ShopGroupId
 import com.pisane.pisane.data.ShopItems
@@ -201,6 +202,10 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun endGame() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+
+        ExperienceDAO.updateUserExperience(userId!!, 10)
         game.saveHighscore(this, setId)
         SharedPreferencesHelper.deleteSavedGame(this, setId)
 
@@ -210,7 +215,7 @@ class GameActivity : AppCompatActivity() {
         finish()
 
         Toast.makeText(this,
-                "Game ended with ${game.gamesTable.tableTotalScore}", Toast.LENGTH_LONG).show()
+                "Gra zakończona z wynikiem ${game.gamesTable.tableTotalScore}", Toast.LENGTH_LONG).show()
     }
 
     fun didTapButton() {

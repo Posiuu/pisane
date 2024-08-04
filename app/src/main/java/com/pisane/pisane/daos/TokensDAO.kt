@@ -68,7 +68,6 @@ class TokensDAO {
             )
             if (putData.startPut() && putData.onComplete()) {
                 val result = putData.result
-                !result.isNullOrEmpty()
                 return if(!result.isNullOrEmpty()) result.toInt() else 0
             }
             return 0

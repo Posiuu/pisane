@@ -18,11 +18,11 @@ import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 
 class ShopActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityShopBinding
+
     private var userId: Int? = null
     private var userTokens: Int? = null
     private var shopItemPurchases: List<ShopItemPurchaseDTO>? = null
-
-    private lateinit var binding: ActivityShopBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -127,6 +127,7 @@ class ShopActivity : AppCompatActivity() {
             ShopDAO.newShopItemSelected(shopItem.id, userId!!)
             TokensDAO.updateUserTokens(shopItem.price * -1, userId!!)
             setShopItems()
+            setChipsCount()
 
             Toast.makeText(this,
                 "Kupiono przedmiot", Toast.LENGTH_SHORT).show()
