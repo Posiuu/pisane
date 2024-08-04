@@ -33,6 +33,7 @@ class ShopActivity : AppCompatActivity() {
         userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
 
         setShopItems()
+        setChipsCount()
 
         binding.shopDefaultBackgroundButton.setOnClickListener {
             setButtonHandling(ShopItems.BACKGROUND_DEFAULT, null, binding.shopDefaultBackgroundTick)
@@ -131,5 +132,13 @@ class ShopActivity : AppCompatActivity() {
             Toast.makeText(this,
                 "Za mało żetonów", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setChipsCount() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+
+        val chipsCount = TokensDAO.getTokensCount(userId!!)
+        binding.shopChipCountTextView.text = chipsCount.toString()
     }
 }

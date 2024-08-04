@@ -28,6 +28,27 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopTop88Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopStart145Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.145" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopStart39Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.39" />
+
     <ImageView
         android:id="@+id/shopBackgroundImageView"
         android:layout_width="0dp"
@@ -365,5 +386,44 @@
         app:layout_constraintEnd_toEndOf="@+id/shopDeck3Button"
         app:layout_constraintStart_toStartOf="@+id/shopDeck3Button"
         app:layout_constraintTop_toTopOf="@+id/shopDeck3Button" />
+
+    <ImageView
+        android:id="@+id/shopBottomPanelBackgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopTop88Guideline"
+        app:srcCompat="@drawable/bottom_panel_background" />
+
+    <ImageView
+        android:id="@+id/shopChipCountImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1.8:1"
+        app:layout_constraintEnd_toStartOf="@+id/shopStart39Guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shopTop88Guideline"
+        app:srcCompat="@drawable/chip_count_frame" />
+
+    <TextView
+        android:id="@+id/shopChipCountTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center_vertical"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        app:layout_constraintBottom_toBottomOf="@+id/shopChipCountImageView"
+        app:layout_constraintDimensionRatio="3.1:1"
+        app:layout_constraintEnd_toEndOf="@+id/shopChipCountImageView"
+        app:layout_constraintStart_toStartOf="@+id/shopStart145Guideline"
+        app:layout_constraintTop_toTopOf="@+id/shopChipCountImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
