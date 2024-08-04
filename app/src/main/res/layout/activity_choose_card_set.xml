@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ccGameConstraintLayout"
+    android:id="@+id/ccConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.GameActivity">
+    tools:context=".activity.ChooseCardSetActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/ccTop10Guideline"
@@ -41,6 +41,27 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccTop88Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccStart145Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.145" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ccStart39Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.39" />
 
     <TextView
         android:id="@+id/ccTitle"
@@ -153,5 +174,59 @@
         app:layout_constraintEnd_toEndOf="@+id/ccSet7Button"
         app:layout_constraintStart_toStartOf="@+id/ccSet7Button"
         app:layout_constraintTop_toTopOf="@+id/ccTop55Guideline" />
+
+    <ImageView
+        android:id="@+id/ccBottomPanelBackgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ccTop88Guideline"
+        app:srcCompat="@drawable/bottom_panel_background" />
+
+    <ImageView
+        android:id="@+id/ccChipCountImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1.8:1"
+        app:layout_constraintEnd_toStartOf="@+id/ccStart39Guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ccTop88Guideline"
+        app:srcCompat="@drawable/chip_count_frame" />
+
+    <TextView
+        android:id="@+id/ccChipCountTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center_vertical"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        app:layout_constraintBottom_toBottomOf="@+id/ccChipCountImageView"
+        app:layout_constraintDimensionRatio="3.1:1"
+        app:layout_constraintEnd_toEndOf="@+id/ccChipCountImageView"
+        app:layout_constraintStart_toStartOf="@+id/ccStart145Guideline"
+        app:layout_constraintTop_toTopOf="@+id/ccChipCountImageView" />
+
+    <ImageButton
+        android:id="@+id/ccBackImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bordered_background"
+        android:padding="16dp"
+        android:scaleType="fitCenter"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ccTop88Guideline"
+        app:srcCompat="@drawable/back_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

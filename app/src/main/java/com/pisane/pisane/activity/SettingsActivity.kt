@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.pisane.pisane.daos.TokensDAO
 import com.pisane.pisane.shared_preferences.PREF_USERNAME
 import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.shared_preferences.SharedPreferencesHelper
@@ -20,13 +21,13 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnLogOut.alpha = 0f
-        binding.btnLogOut.animate().alpha(1f).duration = 1500
+        setChipsCount()
 
-        binding.btnLogOut.setOnClickListener {
-            binding.btnLogOut.alpha = 0f
-            binding.btnLogOut.animate().alpha(1f).duration = 1500
+        binding.settingsLogOutButton.setOnClickListener {
             logout()
+        }
+        binding.settingsBackImageButton.setOnClickListener {
+            finish()
         }
     }
 
@@ -42,5 +43,13 @@ class SettingsActivity : AppCompatActivity() {
         val intent = Intent(activity, LoginActivity::class.java)
         startActivity(intent)
         Toast.makeText(this, "Wylogowano poprawnie.", Toast.LENGTH_LONG).show()
+    }
+
+    private fun setChipsCount() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+
+        val chipsCount = TokensDAO.getTokensCount(userId!!)
+        binding.settingsChipCountTextView.text = chipsCount.toString()
     }
 }

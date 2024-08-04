@@ -5,7 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pisane.pisane.consts.GAME_SET_ID
 import com.pisane.pisane.consts.RANDOM_CARDS_ID
+import com.pisane.pisane.daos.TokensDAO
 import com.pisane.pisane.databinding.ActivityChooseHighscoresBinding
+import com.pisane.pisane.shared_preferences.PREF_USER_ID
+import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 
 class ChooseHighscoresActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChooseHighscoresBinding
@@ -14,6 +17,8 @@ class ChooseHighscoresActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChooseHighscoresBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setChipsCount()
 
         binding.chRandomSetButton.setOnClickListener {
             setButtonHandling(RANDOM_CARDS_ID)
@@ -58,11 +63,23 @@ class ChooseHighscoresActivity : AppCompatActivity() {
         binding.chSet10Button.setOnClickListener {
             setButtonHandling(10)
         }
+
+        binding.chBackImageButton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setButtonHandling(setId: Int) {
         val intent = Intent(this, HighscoresActivity::class.java)
         intent.putExtra(GAME_SET_ID, setId)
         startActivity(intent)
+    }
+
+    private fun setChipsCount() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+
+        val chipsCount = TokensDAO.getTokensCount(userId!!)
+        binding.chChipCountTextView.text = chipsCount.toString()
     }
 }

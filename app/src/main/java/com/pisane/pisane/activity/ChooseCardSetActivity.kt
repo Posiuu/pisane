@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pisane.pisane.consts.GAME_SET_ID
 import com.pisane.pisane.daos.CardSetsDAO
+import com.pisane.pisane.daos.TokensDAO
 import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.shared_preferences.SharedPreferencesHelper
 import com.pisane.pisane.shared_preferences.SharedPreferencesManager
@@ -17,6 +18,8 @@ class ChooseCardSetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChooseCardSetBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setChipsCount()
 
         binding.ccSet1Button.setOnClickListener {
             setButtonHandling(1)
@@ -57,6 +60,10 @@ class ChooseCardSetActivity : AppCompatActivity() {
         binding.ccSet10Button.setOnClickListener {
             setButtonHandling(10)
         }
+
+        binding.ccBackImageButton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setButtonHandling(setId: Int) {
@@ -76,5 +83,13 @@ class ChooseCardSetActivity : AppCompatActivity() {
             intent.putExtra(GAME_SET_ID, setId)
             startActivity(intent)
         }
+    }
+
+    private fun setChipsCount() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+
+        val chipsCount = TokensDAO.getTokensCount(userId!!)
+        binding.ccChipCountTextView.text = chipsCount.toString()
     }
 }
