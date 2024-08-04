@@ -12,10 +12,16 @@ import com.pisane.pisane.databinding.ActivityGameBinding
 import com.pisane.pisane.R.anim.bounce
 import com.pisane.pisane.R.string.*
 import com.pisane.pisane.consts.*
+import com.pisane.pisane.daos.ShopDAO
+import com.pisane.pisane.data.ShopGroupId
+import com.pisane.pisane.data.ShopItems
+import com.pisane.pisane.data.ShopItemsMap
 import com.pisane.pisane.helpers.CardImageButtonHelper
 import com.pisane.pisane.model.Game
 import com.pisane.pisane.helpers.GameHelper
+import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.shared_preferences.SharedPreferencesHelper
+import com.pisane.pisane.shared_preferences.SharedPreferencesManager
 import kotlin.properties.Delegates
 
 class GameActivity : AppCompatActivity() {
@@ -36,6 +42,8 @@ class GameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setId = intent.getIntExtra(GAME_SET_ID, -1)
+
+        setShopItems()
 
         cardImageButtonHelper = getCardButtonManager()
 
@@ -213,5 +221,19 @@ class GameActivity : AppCompatActivity() {
         val interpolator = MyBounceInterpolator(0.2, 20)
         myAnim.interpolator = interpolator
         button.startAnimation(myAnim)
+    }
+
+    private fun setShopItems() {
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
+        val shopItemPurchases = ShopDAO.getShopItemPurchases(userId!!)
+
+        val background = shopItemPurchases?.firstOrNull{it.group_id == ShopGroupId.BACKGROUND && it.is_selected == 1}
+        val backgroundItem = ShopItemsMap[background?.item_id] ?: ShopItems.BACKGROUND_DEFAULT
+        binding.gBackgroundImageView.setImageResource(backgroundItem.imageSource)
+
+        val deck = shopItemPurchases?.firstOrNull{it.group_id == ShopGroupId.CARDS && it.is_selected == 1}
+        val deckItem = ShopItemsMap[deck?.item_id] ?: ShopItems.CARDS_DEFAULT
+        binding.gCardDeckImageView.setImageResource(deckItem.imageSource)
     }
 }

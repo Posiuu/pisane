@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/shopGameConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.GameActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopTop10Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="73dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopTop25Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopTop40Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <ImageView
+        android:id="@+id/shopBackgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/shop_background" />
+
+    <TextView
+        android:id="@+id/shopTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Sklep"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop10Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/shopBackgroundTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Tło"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop25Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/shopDefaultBackgroundButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shopTop10Guideline" />
+
+    <ImageButton
+        android:id="@+id/shopDefaultBackgroundButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop25Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintStart_toEndOf="@+id/shopBackgroundTitle"
+        app:layout_constraintTop_toTopOf="@+id/shopTop10Guideline"
+        app:srcCompat="@drawable/game_background" />
+
+    <ImageView
+        android:id="@+id/shopDefaultBackgroundTick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDefaultBackgroundButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopDefaultBackgroundButton"
+        app:layout_constraintStart_toStartOf="@+id/shopDefaultBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopDefaultBackgroundButton"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:id="@+id/shopGreenBackgroundButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop25Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintStart_toEndOf="@+id/shopDefaultBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopTop10Guideline"
+        app:srcCompat="@drawable/game_background_green" />
+
+    <ImageView
+        android:id="@+id/shopGreenBackgroundTick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintStart_toStartOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopGreenBackgroundButton"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/shopGreenBackgroundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintStart_toStartOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopGreenBackgroundButton" />
+
+    <ImageButton
+        android:id="@+id/shopWoodBackgroundButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop25Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/shopChipsBackgroundButton"
+        app:layout_constraintStart_toEndOf="@+id/shopGreenBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopTop10Guideline"
+        app:srcCompat="@drawable/game_background_wood" />
+
+    <ImageView
+        android:id="@+id/shopWoodBackgroundTick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintStart_toStartOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopWoodBackgroundButton"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/shopWoodBackgroundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintStart_toStartOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopWoodBackgroundButton" />
+
+    <ImageButton
+        android:id="@+id/shopChipsBackgroundButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop25Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shopWoodBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopTop10Guideline"
+        app:srcCompat="@drawable/game_background_chips" />
+
+    <ImageView
+        android:id="@+id/shopChipsBackgroundTick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopChipsBackgroundButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopChipsBackgroundButton"
+        app:layout_constraintStart_toStartOf="@+id/shopChipsBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopChipsBackgroundButton"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/shopChipsBackgroundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopChipsBackgroundButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopChipsBackgroundButton"
+        app:layout_constraintStart_toStartOf="@+id/shopChipsBackgroundButton"
+        app:layout_constraintTop_toTopOf="@+id/shopChipsBackgroundButton" />
+
+    <TextView
+        android:id="@+id/shopCardsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Karty"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop40Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/shopDeckButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shopTop25Guideline" />
+
+    <ImageButton
+        android:id="@+id/shopDeckButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop40Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/shopDeck1Button"
+        app:layout_constraintStart_toEndOf="@+id/shopCardsTitle"
+        app:layout_constraintTop_toTopOf="@+id/shopTop25Guideline"
+        app:srcCompat="@drawable/deck" />
+
+    <ImageView
+        android:id="@+id/shopDefaultDeckTick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDeckButton"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeckButton"
+        app:layout_constraintStart_toStartOf="@+id/shopDeckButton"
+        app:layout_constraintTop_toTopOf="@+id/shopDeckButton"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible" />
+
+    <ImageButton
+        android:id="@+id/shopDeck1Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop40Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/shopDeck2Button"
+        app:layout_constraintStart_toEndOf="@+id/shopDeckButton"
+        app:layout_constraintTop_toTopOf="@+id/shopTop25Guideline"
+        app:srcCompat="@drawable/deck1" />
+
+    <ImageView
+        android:id="@+id/shopDeck1Tick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDeck1Button"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeck1Button"
+        app:layout_constraintStart_toStartOf="@+id/shopDeck1Button"
+        app:layout_constraintTop_toTopOf="@+id/shopDeck1Button"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/shopDeck1Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDeck1Button"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeck1Button"
+        app:layout_constraintStart_toStartOf="@+id/shopDeck1Button"
+        app:layout_constraintTop_toTopOf="@+id/shopDeck1Button" />
+
+    <ImageButton
+        android:id="@+id/shopDeck2Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop40Guideline"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeck3Button"
+        app:layout_constraintStart_toEndOf="@+id/shopDeck1Button"
+        app:layout_constraintTop_toTopOf="@+id/shopTop25Guideline"
+        app:srcCompat="@drawable/deck2" />
+
+    <ImageView
+        android:id="@+id/shopDeck2Tick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDeck2Button"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeck2Button"
+        app:layout_constraintStart_toStartOf="@+id/shopDeck2Button"
+        app:layout_constraintTop_toTopOf="@+id/shopDeck2Button"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/shopDeck2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDeck2Button"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeck2Button"
+        app:layout_constraintStart_toStartOf="@+id/shopDeck2Button"
+        app:layout_constraintTop_toTopOf="@+id/shopDeck2Button" />
+
+    <ImageButton
+        android:id="@+id/shopDeck3Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shopTop40Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shopDeck2Button"
+        app:layout_constraintTop_toTopOf="@+id/shopTop25Guideline"
+        app:srcCompat="@drawable/deck3" />
+
+    <ImageView
+        android:id="@+id/shopDeck3Tick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDeck3Button"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeck3Button"
+        app:layout_constraintStart_toStartOf="@+id/shopDeck3Button"
+        app:layout_constraintTop_toTopOf="@+id/shopDeck3Button"
+        app:srcCompat="@drawable/tick"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/shopDeck3Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shopDeck3Button"
+        app:layout_constraintEnd_toEndOf="@+id/shopDeck3Button"
+        app:layout_constraintStart_toStartOf="@+id/shopDeck3Button"
+        app:layout_constraintTop_toTopOf="@+id/shopDeck3Button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
