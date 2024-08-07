@@ -63,12 +63,26 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.39" />
 
+    <ImageView
+        android:id="@+id/chooseCardSetBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/choose_card_set_bg" />
+
     <TextView
         android:id="@+id/ccTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:text="Wybierz zestaw"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/ccTop10Guideline"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,9 +91,12 @@
 
     <Button
         android:id="@+id/ccSet1Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="15dp"
         android:text="Zestaw 1"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop25Guideline"
         app:layout_constraintEnd_toStartOf="@+id/ccSet2Button"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,9 +104,11 @@
 
     <Button
         android:id="@+id/ccSet2Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginVertical="15dp"
         android:text="Zestaw 2"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop25Guideline"
         app:layout_constraintEnd_toStartOf="@+id/ccSet3Button"
         app:layout_constraintStart_toEndOf="@+id/ccSet1Button"
@@ -97,9 +116,12 @@
 
     <Button
         android:id="@+id/ccSet3Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="30dp"
         android:text="Zestaw 3"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop25Guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ccSet2Button"
@@ -107,69 +129,86 @@
 
     <Button
         android:id="@+id/ccSet4Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="15dp"
         android:text="Zestaw 4"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop40Guideline"
-        app:layout_constraintEnd_toStartOf="@+id/ccSet2Button"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet5Button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ccTop25Guideline" />
 
     <Button
         android:id="@+id/ccSet5Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginVertical="15dp"
         android:text="Zestaw 5"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop40Guideline"
-        app:layout_constraintEnd_toStartOf="@+id/ccSet3Button"
-        app:layout_constraintStart_toEndOf="@+id/ccSet1Button"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet6Button"
+        app:layout_constraintStart_toEndOf="@+id/ccSet4Button"
         app:layout_constraintTop_toTopOf="@+id/ccTop25Guideline" />
 
     <Button
         android:id="@+id/ccSet6Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="30dp"
         android:text="Zestaw 6"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop40Guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ccSet2Button"
+        app:layout_constraintStart_toEndOf="@+id/ccSet5Button"
         app:layout_constraintTop_toTopOf="@+id/ccTop25Guideline" />
 
     <Button
         android:id="@+id/ccSet7Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="15dp"
         android:text="Zestaw 7"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop55Guideline"
-        app:layout_constraintEnd_toStartOf="@+id/ccSet2Button"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet8Button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ccTop40Guideline" />
 
     <Button
         android:id="@+id/ccSet8Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginVertical="15dp"
         android:text="Zestaw 8"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop55Guideline"
-        app:layout_constraintEnd_toStartOf="@+id/ccSet3Button"
-        app:layout_constraintStart_toEndOf="@+id/ccSet1Button"
+        app:layout_constraintEnd_toStartOf="@+id/ccSet9Button"
+        app:layout_constraintStart_toEndOf="@+id/ccSet7Button"
         app:layout_constraintTop_toTopOf="@+id/ccTop40Guideline" />
 
     <Button
         android:id="@+id/ccSet9Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="30dp"
         android:text="Zestaw 9"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop55Guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ccSet2Button"
+        app:layout_constraintStart_toEndOf="@+id/ccSet8Button"
         app:layout_constraintTop_toTopOf="@+id/ccTop40Guideline" />
 
     <Button
         android:id="@+id/ccSet10Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         android:text="Zestaw 10"
+        android:background="@drawable/bottom_panel_background"
         app:layout_constraintBottom_toTopOf="@+id/ccTop70Guideline"
         app:layout_constraintEnd_toEndOf="@+id/ccSet7Button"
         app:layout_constraintStart_toStartOf="@+id/ccSet7Button"
