@@ -162,7 +162,7 @@ class MainMenuActivity : AppCompatActivity() {
         val secondsDiff = DatetimeHelper.secondsDiff(activationDatetimeStr!!)
 
         if (secondsDiff > secondsBetweenActivation) {
-            binding.mmCollectChipsTimer.text= "Odbierz darmowe \n10000 rzetonów!"
+            binding.mmCollectChipsTimer.text= "Odbierz darmowe\n10000 rzetonów!"
         }
         else {
             val millisecondsToCount = (secondsBetweenActivation - secondsDiff) * 1000

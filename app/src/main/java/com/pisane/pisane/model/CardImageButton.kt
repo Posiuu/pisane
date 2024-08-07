@@ -2,10 +2,12 @@ package com.pisane.pisane.model
 
 import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updateLayoutParams
 import com.pisane.pisane.consts.DOWN_BOT_TO_BOT
 import com.pisane.pisane.consts.DOWN_TOP_TO_TOP
 import com.pisane.pisane.consts.UP_BOT_TO_BOT
 import com.pisane.pisane.consts.UP_TOP_TO_TOP
+
 
 class CardImageButton(private val imageButton: ImageButton, private val index: Int, private val guidelines: HashMap<String, Int>) {
     var isSelected: Boolean = false
@@ -23,16 +25,18 @@ class CardImageButton(private val imageButton: ImageButton, private val index: I
     }
 
     private fun moveUp() {
-        val params = imageButton.layoutParams as ConstraintLayout.LayoutParams
-        params.topToTop = guidelines[UP_TOP_TO_TOP]!!
-        params.bottomToBottom = guidelines[UP_BOT_TO_BOT]!!
+        imageButton.updateLayoutParams<ConstraintLayout.LayoutParams> {
+            topToTop = guidelines[UP_TOP_TO_TOP]!!
+            bottomToTop = guidelines[UP_BOT_TO_BOT]!!
+        }
         imageButton.requestLayout()
     }
 
     fun moveDown() {
-        val params = imageButton.layoutParams as ConstraintLayout.LayoutParams
-        params.topToTop = guidelines[DOWN_TOP_TO_TOP]!!
-        params.bottomToBottom = guidelines[DOWN_BOT_TO_BOT]!!
+        imageButton.updateLayoutParams<ConstraintLayout.LayoutParams> {
+            topToTop = guidelines[DOWN_TOP_TO_TOP]!!
+            bottomToTop = guidelines[DOWN_BOT_TO_BOT]!!
+        }
         imageButton.requestLayout()
     }
 

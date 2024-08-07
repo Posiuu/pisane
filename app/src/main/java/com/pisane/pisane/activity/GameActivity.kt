@@ -101,9 +101,9 @@ class GameActivity : AppCompatActivity() {
         )
 
         val cardsGuidelines = hashMapOf(
-                DOWN_TOP_TO_TOP to binding.gTop85Guideline.id,
+                DOWN_TOP_TO_TOP to binding.gTop84Guideline.id,
                 DOWN_BOT_TO_BOT to binding.gTop98Guideline.id,
-                UP_TOP_TO_TOP to binding.gTop81Guideline.id,
+                UP_TOP_TO_TOP to binding.gTop80Guideline.id,
                 UP_BOT_TO_BOT to binding.gTop94Guideline.id
         )
 

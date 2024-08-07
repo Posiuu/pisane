@@ -22,46 +22,46 @@
         app:layout_constraintGuide_percent="0.015" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop625Guideline"
+        android:id="@+id/gTop615Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.625" />
+        app:layout_constraintGuide_percent="0.615" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop63Guideline"
+        android:id="@+id/gTop62Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        app:layout_constraintGuide_percent="0.62" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop65Guideline"
+        android:id="@+id/gTop64Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.64" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop79Guideline"
+        android:id="@+id/gTop78Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.79" />
+        app:layout_constraintGuide_percent="0.78" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop81Guideline"
+        android:id="@+id/gTop80Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.81" />
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop85Guideline"
+        android:id="@+id/gTop84Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_percent="0.84" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gTop94Guideline"
@@ -85,60 +85,60 @@
         app:layout_constraintGuide_percent="0.02" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart16Guideline"
+        android:id="@+id/gStart196Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.16" />
+        app:layout_constraintGuide_percent="0.196" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart225Guideline"
+        android:id="@+id/gStart216Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.225" />
+        app:layout_constraintGuide_percent="0.216" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart365Guideline"
+        android:id="@+id/gStart392Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.365" />
+        app:layout_constraintGuide_percent="0.392" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart43Guideline"
+        android:id="@+id/gStart412Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.43" />
+        app:layout_constraintGuide_percent="0.412" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart57Guideline"
+        android:id="@+id/gStart588Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.57" />
+        app:layout_constraintGuide_percent="0.588" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart635Guideline"
+        android:id="@+id/gStart608Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.635" />
+        app:layout_constraintGuide_percent="0.608" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart775Guideline"
+        android:id="@+id/gStart784Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.775" />
+        app:layout_constraintGuide_percent="0.784" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart84Guideline"
+        android:id="@+id/gStart804Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.84" />
+        app:layout_constraintGuide_percent="0.804" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gStart03Guideline"
@@ -192,7 +192,7 @@
         android:id="@+id/gScoresListBackgroundImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/gTop63Guideline"
+        app:layout_constraintBottom_toTopOf="@+id/gTop62Guideline"
         app:layout_constraintEnd_toStartOf="@+id/gStart98Guideline"
         app:layout_constraintStart_toStartOf="@+id/gStart02Guideline"
         app:layout_constraintTop_toTopOf="@+id/gTop01Guideline"
@@ -204,7 +204,7 @@
         android:layout_height="0dp"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/gTop625Guideline"
+        app:layout_constraintBottom_toTopOf="@+id/gTop615Guideline"
         app:layout_constraintEnd_toStartOf="@+id/gStart97Guideline"
         app:layout_constraintStart_toStartOf="@+id/gStart03Guideline"
         app:layout_constraintTop_toTopOf="@+id/gTop015Guideline"
@@ -217,10 +217,10 @@
         android:onClick="didTapButton"
         android:background="@color/transparent"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/gTop79Guideline"
+        app:layout_constraintBottom_toTopOf="@+id/gTop78Guideline"
         app:layout_constraintEnd_toStartOf="@+id/gStart75Guideline"
         app:layout_constraintStart_toStartOf="@+id/gStart25Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop65Guideline"
+        app:layout_constraintTop_toTopOf="@+id/gTop64Guideline"
         app:srcCompat="@drawable/wymien_image" />
 
     <ImageView
@@ -228,10 +228,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/gTop79Guideline"
+        app:layout_constraintBottom_toTopOf="@+id/gTop78Guideline"
         app:layout_constraintEnd_toStartOf="@+id/gStart98Guideline"
         app:layout_constraintStart_toEndOf="@+id/gStart75Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop65Guideline"
+        app:layout_constraintTop_toTopOf="@+id/gTop64Guideline"
         app:srcCompat="@drawable/deck" />
 
     <ImageButton
@@ -241,10 +241,9 @@
         android:background="@color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/gTop98Guideline"
-        app:layout_constraintDimensionRatio="1:1.61"
-        app:layout_constraintEnd_toStartOf="@+id/gStart16Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/gStart196Guideline"
         app:layout_constraintStart_toStartOf="@+id/gStart02Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop85Guideline"
+        app:layout_constraintTop_toTopOf="@+id/gTop84Guideline"
         app:srcCompat="@drawable/ha" />
 
     <ImageButton
@@ -254,10 +253,9 @@
         android:background="@color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/gTop98Guideline"
-        app:layout_constraintDimensionRatio="1:1.61"
-        app:layout_constraintEnd_toStartOf="@+id/gStart365Guideline"
-        app:layout_constraintStart_toStartOf="@+id/gStart225Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop85Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/gStart392Guideline"
+        app:layout_constraintStart_toStartOf="@+id/gStart216Guideline"
+        app:layout_constraintTop_toTopOf="@+id/gTop84Guideline"
         app:srcCompat="@drawable/s2" />
 
     <ImageButton
@@ -267,10 +265,9 @@
         android:background="@color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/gTop98Guideline"
-        app:layout_constraintDimensionRatio="1:1.61"
-        app:layout_constraintEnd_toStartOf="@+id/gStart57Guideline"
-        app:layout_constraintStart_toStartOf="@+id/gStart43Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop85Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/gStart588Guideline"
+        app:layout_constraintStart_toStartOf="@+id/gStart412Guideline"
+        app:layout_constraintTop_toTopOf="@+id/gTop84Guideline"
         app:srcCompat="@drawable/d7" />
 
     <ImageButton
@@ -280,10 +277,9 @@
         android:background="@color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/gTop98Guideline"
-        app:layout_constraintDimensionRatio="1:1.61"
-        app:layout_constraintEnd_toStartOf="@+id/gStart775Guideline"
-        app:layout_constraintStart_toStartOf="@+id/gStart635Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop85Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/gStart784Guideline"
+        app:layout_constraintStart_toStartOf="@+id/gStart608Guideline"
+        app:layout_constraintTop_toTopOf="@+id/gTop84Guideline"
         app:srcCompat="@drawable/d9" />
 
     <ImageButton
@@ -293,10 +289,9 @@
         android:background="@color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/gTop98Guideline"
-        app:layout_constraintDimensionRatio="1:1.61"
         app:layout_constraintEnd_toStartOf="@+id/gStart98Guideline"
-        app:layout_constraintStart_toStartOf="@+id/gStart84Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop85Guideline"
+        app:layout_constraintStart_toStartOf="@+id/gStart804Guideline"
+        app:layout_constraintTop_toTopOf="@+id/gTop84Guideline"
         app:srcCompat="@drawable/c10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
