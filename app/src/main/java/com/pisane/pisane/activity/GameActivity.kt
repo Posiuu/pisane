@@ -1,11 +1,13 @@
 package com.pisane.pisane.activity
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.pisane.pisane.R
 import com.pisane.pisane.adapter.*
 import com.pisane.pisane.anims.MyBounceInterpolator
 import com.pisane.pisane.databinding.ActivityGameBinding
@@ -126,10 +128,13 @@ class GameActivity : AppCompatActivity() {
 
     private fun drawButtonHandling() {
         if (selectedCardsIndices.isEmpty()) {
+            MediaPlayer.create(this, R.raw.sound_error).start()
             Toast.makeText(this,
                     "Nie wybrałeś żadnych kart do wymiany.", Toast.LENGTH_LONG).show()
             return
         }
+
+        MediaPlayer.create(this, R.raw.sound_cards_deal).start()
 
         val hand = game.currentHand
         val isDrawSuccessful = hand.draw(selectedCardsIndices)
@@ -154,6 +159,7 @@ class GameActivity : AppCompatActivity() {
             endGame()
             return
         }
+        MediaPlayer.create(this, R.raw.sound_cards_deal).start()
 
         cardImageButtonHelper.updateCardImageButtons(game.currentHand.currentCards)
         selectedCardsIndices.clear()
@@ -202,6 +208,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun endGame() {
+        MediaPlayer.create(this, R.raw.sound_new_score).start()
         val sharedPreferencesManager = SharedPreferencesManager(this)
         val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
 

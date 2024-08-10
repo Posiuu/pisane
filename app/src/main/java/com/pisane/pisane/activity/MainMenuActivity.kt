@@ -1,6 +1,7 @@
 package com.pisane.pisane.activity
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Toast
@@ -15,6 +16,7 @@ import com.pisane.pisane.helpers.DatetimeHelper
 import com.pisane.pisane.shared_preferences.PREF_USERNAME
 import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.shared_preferences.SharedPreferencesManager
+import com.pisane.pisane.R
 
 
 class MainMenuActivity : AppCompatActivity() {
@@ -38,22 +40,27 @@ class MainMenuActivity : AppCompatActivity() {
         setChipsCount()
 
         binding.mmSettingsImageButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             settingsButtonHandling()
         }
 
         binding.mmRandomCardsButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             randomCardsButtonHandling()
         }
 
         binding.mmCardsSetsButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             cardsSetsButtonHandling()
         }
 
         binding.mmScoresButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             scoresButtonHandling()
         }
 
         binding.mmRulesButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             rulesButtonHandling()
         }
 
@@ -62,6 +69,7 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
         binding.mmShopImageButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             shopButtonHandling()
         }
     }
@@ -103,12 +111,14 @@ class MainMenuActivity : AppCompatActivity() {
     private fun collectFreeChipsButtonHandling() {
         val secondsDiff = getActivationSecondsDiff()
         if (secondsDiff != null && secondsDiff <= secondsBetweenActivation) {
+            MediaPlayer.create(this, R.raw.sound_error).start()
             Toast.makeText(
                 this, "Żetony odbierać możesz co 10 godzin",
                 Toast.LENGTH_SHORT
             ).show()
         }
         else {
+            MediaPlayer.create(this, R.raw.sound_collect_chips).start()
             val chipsCount = TokensDAO.updateUserTokens(10000, userId!!)
             binding.mmChipCountTextView.text = chipsCount.toString()
             TokensDAO.newTokenActivation(userId!!)

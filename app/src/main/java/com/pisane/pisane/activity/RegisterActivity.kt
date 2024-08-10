@@ -1,11 +1,13 @@
 package com.pisane.pisane.activity
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.pisane.pisane.R
 import com.pisane.pisane.consts.login_url
 import com.pisane.pisane.consts.signup_url
 import com.pisane.pisane.databinding.ActivityRegisterBinding
@@ -30,10 +32,12 @@ class RegisterActivity : AppCompatActivity() {
         skipIfLoggedIn()
 
         binding.rRegisterButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             register(binding.rUsernameEditText.text.toString(), binding.rPasswordEditText.text.toString())
         }
 
         binding.rToLoginButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_go_back).start()
             backToLogin()
         }
     }

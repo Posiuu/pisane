@@ -1,5 +1,6 @@
 package com.pisane.pisane.activity
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -7,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColorInt
+import com.pisane.pisane.R
 import com.pisane.pisane.daos.ShopDAO
 import com.pisane.pisane.daos.TokensDAO
 import com.pisane.pisane.data.ShopGroupId
@@ -60,6 +62,7 @@ class ShopActivity : AppCompatActivity() {
             setButtonHandling(ShopItems.CARDS3, binding.shopDeck3Text, binding.shopDeck3Tick)
         }
         binding.shopBackImageButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_go_back).start()
             finish()
         }
     }
@@ -100,10 +103,12 @@ class ShopActivity : AppCompatActivity() {
 
     private fun setButtonHandling(shopItem: ShopItem, textView: TextView?, tick: ImageView) {
         if (tick.visibility == View.VISIBLE){
+            MediaPlayer.create(this, R.raw.sound_error).start()
             Toast.makeText(this,
                 "Przedmiot jest już wybrany", Toast.LENGTH_SHORT).show()
         }
         else if (textView?.text.isNullOrEmpty()){
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             ShopDAO.newShopItemSelected(shopItem.id, userId!!)
 
             if (shopItem.groupId == ShopGroupId.BACKGROUND){
@@ -124,6 +129,7 @@ class ShopActivity : AppCompatActivity() {
                 "Wybrano przedmiot", Toast.LENGTH_SHORT).show()
         }
         else if (userTokens!! >= shopItem.price){
+            MediaPlayer.create(this, R.raw.sound_item_purchased).start()
             ShopDAO.newShopItemSelected(shopItem.id, userId!!)
             TokensDAO.updateUserTokens(shopItem.price * -1, userId!!)
             setShopItems()
@@ -133,6 +139,7 @@ class ShopActivity : AppCompatActivity() {
                 "Kupiono przedmiot", Toast.LENGTH_SHORT).show()
         }
         else {
+            MediaPlayer.create(this, R.raw.sound_error).start()
             Toast.makeText(this,
                 "Za mało żetonów", Toast.LENGTH_SHORT).show()
         }

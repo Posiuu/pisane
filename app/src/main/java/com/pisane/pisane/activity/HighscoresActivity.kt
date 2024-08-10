@@ -1,7 +1,9 @@
 package com.pisane.pisane.activity
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.pisane.pisane.R
 import com.pisane.pisane.adapter.*
 import com.pisane.pisane.consts.GAME_SET_ID
 import com.pisane.pisane.consts.RANDOM_CARDS_ID
@@ -31,6 +33,7 @@ class HighscoresActivity : AppCompatActivity() {
         binding.hHighscoresRecyclerView.adapter = HighscoresTableRecyclerViewAdapter(this, highscoresList)
 
         binding.hBackImageButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_go_back).start()
             finish()
         }
     }

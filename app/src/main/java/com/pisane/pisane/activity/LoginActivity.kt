@@ -1,11 +1,13 @@
 package com.pisane.pisane.activity
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.pisane.pisane.R
 import com.pisane.pisane.consts.login_url
 import com.pisane.pisane.shared_preferences.PREF_USERNAME
 import com.pisane.pisane.shared_preferences.SharedPreferencesManager
@@ -26,11 +28,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.lLoginButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_button_click).start()
             login(binding.lUsernameEditText.text.toString(), binding.lPasswordEditText.text.toString())
         }
 
         binding.lToRegisterButton.setOnClickListener {
-            register()
+            MediaPlayer.create(this, R.raw.sound_go_back).start()
+            toRegister()
         }
     }
 
@@ -74,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
         Toast.makeText(this, "Zalogowano poprawnie.", Toast.LENGTH_LONG).show()
     }
 
-    private fun register() {
+    private fun toRegister() {
         val accountsIntent = Intent(activity, RegisterActivity::class.java)
         startActivity(accountsIntent)
         finish()

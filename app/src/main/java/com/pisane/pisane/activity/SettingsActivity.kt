@@ -1,9 +1,11 @@
 package com.pisane.pisane.activity
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.pisane.pisane.R
 import com.pisane.pisane.daos.TokensDAO
 import com.pisane.pisane.shared_preferences.PREF_USERNAME
 import com.pisane.pisane.shared_preferences.PREF_USER_ID
@@ -24,9 +26,11 @@ class SettingsActivity : AppCompatActivity() {
         setChipsCount()
 
         binding.settingsLogOutButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_go_back).start()
             logout()
         }
         binding.settingsBackImageButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_go_back).start()
             finish()
         }
     }

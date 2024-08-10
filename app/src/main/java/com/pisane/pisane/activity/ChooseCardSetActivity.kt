@@ -1,8 +1,10 @@
 package com.pisane.pisane.activity
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.pisane.pisane.R
 import com.pisane.pisane.consts.GAME_SET_ID
 import com.pisane.pisane.daos.CardSetsDAO
 import com.pisane.pisane.daos.TokensDAO
@@ -62,11 +64,13 @@ class ChooseCardSetActivity : AppCompatActivity() {
         }
 
         binding.ccBackImageButton.setOnClickListener {
+            MediaPlayer.create(this, R.raw.sound_go_back).start()
             finish()
         }
     }
 
     private fun setButtonHandling(setId: Int) {
+        MediaPlayer.create(this, R.raw.sound_button_click).start()
         val sharedPreferencesManager = SharedPreferencesManager(this)
         val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
 
