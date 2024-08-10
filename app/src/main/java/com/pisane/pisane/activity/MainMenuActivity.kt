@@ -102,10 +102,8 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun rulesButtonHandling() {
-        Toast.makeText(
-                this, "Zasady będą wkrótce dostępne",
-                Toast.LENGTH_SHORT
-        ).show()
+        val intent = Intent(this, RulesActivity::class.java)
+        startActivity(intent)
     }
 
     private fun collectFreeChipsButtonHandling() {
