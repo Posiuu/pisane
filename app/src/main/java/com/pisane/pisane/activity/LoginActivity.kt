@@ -25,20 +25,11 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        skipIfLoggedIn()
-
-        binding.btnLogin.alpha = 0f
-        binding.btnLogin.animate().alpha(1f).duration = 1500
-
-        binding.btnLogin.setOnClickListener {
-            binding.btnLogin.alpha = 0f
-            binding.btnLogin.animate().alpha(1f).duration = 1500
-            login(binding.etUsername.text.toString(), binding.etPassword.text.toString())
+        binding.lLoginButton.setOnClickListener {
+            login(binding.lUsernameEditText.text.toString(), binding.lPasswordEditText.text.toString())
         }
 
-        binding.btnRegister.setOnClickListener {
-            binding.btnLogin.alpha = 0f
-            binding.btnLogin.animate().alpha(1f).duration = 1500
+        binding.lToRegisterButton.setOnClickListener {
             register()
         }
     }
@@ -77,31 +68,15 @@ class LoginActivity : AppCompatActivity() {
         sharedPreferencesManager.putObject(user.id, PREF_USER_ID)
         sharedPreferencesManager.putObject(user.username, PREF_USERNAME)
 
-        emptyInputEditText()
         val accountsIntent = Intent(activity, MainMenuActivity::class.java)
         startActivity(accountsIntent)
+        finish()
         Toast.makeText(this, "Zalogowano poprawnie.", Toast.LENGTH_LONG).show()
     }
 
     private fun register() {
         val accountsIntent = Intent(activity, RegisterActivity::class.java)
-        emptyInputEditText()
         startActivity(accountsIntent)
-    }
-
-    private fun emptyInputEditText() {
-        binding.etUsername.text = null
-        binding.etPassword.text = null
-    }
-
-    private fun skipIfLoggedIn() {
-        val sharedPreferencesManager = SharedPreferencesManager(this)
-        val logedInUsername = sharedPreferencesManager.getObject<String>(PREF_USER_ID)
-
-        if (logedInUsername != null) {
-            val accountsIntent = Intent(activity, MainMenuActivity::class.java)
-            startActivity(accountsIntent)
-            finish()
-        }
+        finish()
     }
 }

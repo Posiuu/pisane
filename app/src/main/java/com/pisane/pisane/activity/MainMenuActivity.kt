@@ -101,27 +101,22 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun collectFreeChipsButtonHandling() {
-        val sharedPreferencesManager = SharedPreferencesManager(this)
-        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
-
-        val activationDatetimeStr = TokensDAO.getLastTokensActivation(userId!!)?.activation_datetime
-        val secondsDiff = DatetimeHelper.secondsDiff(activationDatetimeStr!!)
-
-        if (secondsDiff > secondsBetweenActivation) {
-            val chipsCount = TokensDAO.updateUserTokens(10000, userId)
+        val secondsDiff = getActivationSecondsDiff()
+        if (secondsDiff != null && secondsDiff <= secondsBetweenActivation) {
+            Toast.makeText(
+                this, "Żetony odbierać możesz co 10 godzin",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        else {
+            val chipsCount = TokensDAO.updateUserTokens(10000, userId!!)
             binding.mmChipCountTextView.text = chipsCount.toString()
-            TokensDAO.newTokenActivation(userId)
+            TokensDAO.newTokenActivation(userId!!)
             Toast.makeText(
                 this, "Otrzymujesz 10 000 żetonów",
                 Toast.LENGTH_SHORT
             ).show()
             startTimer(secondsBetweenActivation * 1000)
-        }
-        else {
-            Toast.makeText(
-                this, "Żetony odbierać możesz co 10 godzin",
-                Toast.LENGTH_SHORT
-            ).show()
         }
 
     }
@@ -155,25 +150,22 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun setCollectTokensTimer() {
-        val sharedPreferencesManager = SharedPreferencesManager(this)
-        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
-
-        val activationDatetimeStr = TokensDAO.getLastTokensActivation(userId!!)?.activation_datetime
-        val secondsDiff = DatetimeHelper.secondsDiff(activationDatetimeStr!!)
-
-        if (secondsDiff > secondsBetweenActivation) {
-            binding.mmCollectChipsTimer.text= "Odbierz darmowe\n10000 rzetonów!"
-        }
-        else {
+        val secondsDiff = getActivationSecondsDiff()
+        if (secondsDiff != null && secondsDiff <= secondsBetweenActivation) {
             val millisecondsToCount = (secondsBetweenActivation - secondsDiff) * 1000
             startTimer(millisecondsToCount)
         }
+        else {
+            binding.mmCollectChipsTimer.text= "Odbierz darmowe\n10000 rzetonów!"
+        }
+    }
+
+    private fun getActivationSecondsDiff(): Long? {
+        val activationDatetimeStr = TokensDAO.getLastTokensActivation(userId!!)?.activation_datetime
+        return if (activationDatetimeStr != null) DatetimeHelper.secondsDiff(activationDatetimeStr) else null
     }
 
     private fun setChipsCount() {
-        val sharedPreferencesManager = SharedPreferencesManager(this)
-        val userId = sharedPreferencesManager.getObject<Int>(PREF_USER_ID)
-
         val chipsCount = TokensDAO.getTokensCount(userId!!)
         binding.mmChipCountTextView.text = chipsCount.toString()
     }

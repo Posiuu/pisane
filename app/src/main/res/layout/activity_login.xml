@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.LoginActivity">
 
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lStart08Guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.08" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/lTop05Guideline"
         android:layout_width="wrap_content"
@@ -30,85 +22,141 @@
         app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lTop35Guideline"
+        android:id="@+id/lTop70Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lStart08Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lStart92Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <ImageView
+        android:id="@+id/loginBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/login_bg" />
 
     <TextView
-        android:id="@+id/tv_login"
+        android:id="@+id/lTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:text="Logowanie"
-        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/lTop05Guideline" />
 
+    <ImageView
+        android:id="@+id/loginInputsBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.8"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/lTop70Guideline"
+        app:layout_constraintEnd_toEndOf="@id/lStart92Guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/lStart08Guideline"
+        app:layout_constraintTop_toTopOf="@id/lTop20Guideline"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/black_rounded_rectangle" />
+
     <TextView
-        android:id="@+id/tv_username"
+        android:id="@+id/lUsernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="Nazwa Użytkownika"
-        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:text="Nazwa Gracza"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/lStart08Guideline"
         app:layout_constraintTop_toTopOf="@+id/lTop20Guideline" />
 
     <EditText
-        android:id="@+id/et_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/lUsernameEditText"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:ems="14"
+        android:paddingHorizontal="10dp"
+        android:hint="Podaj swoją nazwę gracza"
+        android:textColor="@color/white"
+        android:background="@drawable/gray_button_bg"
+        app:layout_constraintEnd_toStartOf="@+id/lStart92Guideline"
         app:layout_constraintStart_toStartOf="@+id/lStart08Guideline"
-        app:layout_constraintTop_toBottomOf="@+id/tv_username" />
-
+        app:layout_constraintTop_toBottomOf="@+id/lUsernameTextView" />
 
     <TextView
-        android:id="@+id/tv_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="Hasło"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/lStart08Guideline"
-        app:layout_constraintTop_toTopOf="@+id/lTop35Guideline" />
-
-    <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/lPasswordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:ems="14"
-        android:inputType="textPassword"
+        android:layout_marginStart="20dp"
+        android:text="Hasło"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/lStart08Guideline"
-        app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+        app:layout_constraintTop_toBottomOf="@+id/lUsernameEditText" />
+
+    <EditText
+        android:id="@+id/lPasswordEditText"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="10dp"
+        android:hint="Podaj swoje hasło"
+        android:textColor="@color/white"
+        android:background="@drawable/gray_button_bg"
+        app:layout_constraintEnd_toStartOf="@+id/lStart92Guideline"
+        app:layout_constraintStart_toStartOf="@+id/lStart08Guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lPasswordTextView" />
 
     <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
-        android:ems="12"
+        android:id="@+id/lLoginButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
         android:text="Zaloguj"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        android:textColor="@color/white"
+        android:background="@drawable/bottom_panel_background"
+        app:layout_constraintEnd_toEndOf="@id/lStart92Guideline"
+        app:layout_constraintStart_toStartOf="@id/lStart08Guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lPasswordEditText" />
 
     <Button
-        android:id="@+id/btn_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/lToRegisterButton"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="40dp"
         android:ems="12"
-        android:text="Zakładanie konta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        android:text="Nie mam jeszcze konta"
+        android:textColor="@color/white"
+        android:background="@drawable/green_button_background"
+        app:layout_constraintEnd_toEndOf="@id/lStart92Guideline"
+        app:layout_constraintStart_toStartOf="@id/lStart08Guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lTop70Guideline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
