@@ -13,6 +13,7 @@ import com.pisane.pisane.consts.signup_url
 import com.pisane.pisane.databinding.ActivityRegisterBinding
 import com.pisane.pisane.enums.ResultStatus
 import com.pisane.pisane.model.User
+import com.pisane.pisane.services.MusicService
 import com.pisane.pisane.shared_preferences.PREF_USERNAME
 import com.pisane.pisane.shared_preferences.PREF_USER_ID
 import com.pisane.pisane.shared_preferences.SharedPreferencesManager
@@ -29,6 +30,7 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        startService(Intent(this, MusicService::class.java))
         skipIfLoggedIn()
 
         binding.rRegisterButton.setOnClickListener {

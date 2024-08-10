@@ -52,6 +52,8 @@
             android:name="com.pisane.pisane.activity.ShopActivity"
             android:screenOrientation="portrait"
             android:exported="true" />
+
+        <service android:name=".services.MusicService" />
     </application>
 
 </manifest>
