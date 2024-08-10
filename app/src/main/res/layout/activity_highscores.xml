@@ -7,83 +7,79 @@
     android:layout_height="match_parent"
     tools:context=".activity.HighscoresActivity">
 
-    <TextView
-        android:id="@+id/tv_login2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Wyniki Losowe Karty"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/gTop16Guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop16Guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop165Guideline"
+        android:id="@+id/hTop165Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.165" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop925Guideline"
+        android:id="@+id/hTop80Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.925" />
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gTop93Guideline"
+        android:id="@+id/hTop88Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.93" />
+        app:layout_constraintGuide_percent="0.88" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart02Guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.02" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart03Guideline"
+        android:id="@+id/hStart03Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.03" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart97Guideline"
+        android:id="@+id/hStart145Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.145" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hStart39Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.39" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hStart97Guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.97" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gStart98Guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.98" />
-
     <ImageView
-        android:id="@+id/hHighscoresBackgroundImageView"
+        android:id="@+id/highscoresBg"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/gTop93Guideline"
-        app:layout_constraintEnd_toStartOf="@+id/gStart98Guideline"
-        app:layout_constraintStart_toStartOf="@+id/gStart02Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop16Guideline"
-        app:srcCompat="@color/black" />
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/highscores_bg" />
+
+    <TextView
+        android:id="@+id/hTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/hTop165Guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hHighscoresRecyclerView"
@@ -91,10 +87,64 @@
         android:layout_height="0dp"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/gTop925Guideline"
-        app:layout_constraintEnd_toStartOf="@+id/gStart97Guideline"
-        app:layout_constraintStart_toStartOf="@+id/gStart03Guideline"
-        app:layout_constraintTop_toTopOf="@+id/gTop165Guideline"
+        app:layout_constraintBottom_toTopOf="@+id/hTop80Guideline"
+        app:layout_constraintEnd_toStartOf="@+id/hStart97Guideline"
+        app:layout_constraintStart_toStartOf="@+id/hStart03Guideline"
+        app:layout_constraintTop_toTopOf="@+id/hTop165Guideline"
         tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/hBottomPanelBackgroundImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hTop88Guideline"
+        app:srcCompat="@drawable/bottom_panel_background" />
+
+    <ImageView
+        android:id="@+id/hChipCountImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1.8:1"
+        app:layout_constraintEnd_toStartOf="@+id/hStart39Guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hTop88Guideline"
+        app:srcCompat="@drawable/chip_count_frame" />
+
+    <TextView
+        android:id="@+id/hChipCountTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center_vertical"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        app:layout_constraintBottom_toBottomOf="@+id/hChipCountImageView"
+        app:layout_constraintDimensionRatio="3.1:1"
+        app:layout_constraintEnd_toEndOf="@+id/hChipCountImageView"
+        app:layout_constraintStart_toStartOf="@+id/hStart145Guideline"
+        app:layout_constraintTop_toTopOf="@+id/hChipCountImageView" />
+
+    <ImageButton
+        android:id="@+id/hBackImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bordered_background"
+        android:padding="16dp"
+        android:scaleType="fitCenter"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hTop88Guideline"
+        app:srcCompat="@drawable/back_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
